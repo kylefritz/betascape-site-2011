@@ -40,6 +40,14 @@ section.site-links{
         list-style:none;
         display:inline;
         margin-right:$gutter_width*3;
+        &.current{
+          background:$beta_blue;
+          padding:13px;
+          @include single-box-shadow();
+          a{
+            @include link-colors(white,white);
+          }
+        }
         a{
           text-decoration:none;
           @include link-colors(white,$beta_blue);
@@ -51,10 +59,11 @@ section.site-links{
         background:$beta_red;
         float: right;
         text-align: center;
-        padding: 2*$gutter_width;
+        padding: 1.5*$gutter_width;
         margin-top: -$gutter_width;
         margin-right:0;
         @include single-box-shadow();
+        letter-spacing:2px;
         a{
           @include link-colors(white,black);
         }
@@ -72,6 +81,7 @@ section.site-links{
       a{
         @include unstyled-link;
         @include hover-link;
+        @include link-colors(#888,$beta_blue);
       }
     }
     .logo{
@@ -92,7 +102,9 @@ section.site-links{
 
   }
 
-
+section{
+        @include single-text-shadow();
+}
 
   $promo_number_columns:8;
   $promo_append_columns:1;
@@ -138,18 +150,44 @@ section.site-links{
       letter-spacing:4px;
     }
   }
+  /*TODO: dry these next two up with a mix-in, they're almost the same*/
   section.overview{
-    clear:both;
-    margin-top:8*$gutter_width;
     @include column(11);
-    @include append(1);
+    @include append(2);
     header{
       padding: $gutter_width;
       background:$beta_orange;
       color:white;
       font-weight:bold;
-    @include single-box-shadow();
+      margin-bottom:$gutter_width;
+     @include single-box-shadow();
+    }
+    footer{
+      background:$beta_blue;
+      font-size:120%;
+      padding:$gutter_width;
+      text-align:right;
+      @include single-box-shadow();
+      @include single-text-shadow();
+      a{
+        text-decoration:none;
+        @include link-colors(white,black);
+      }
     }
   }
-
+  section.locations{
+    @include column(11,true);
+    header{
+      padding: $gutter_width;
+      background:$beta_orange;
+      color:white;
+      font-weight:bold;
+      margin-bottom:$gutter_width;
+      @include single-box-shadow();
+    }
+  }
+  section.whos-there,.overview-locations{
+    margin-top:8*$gutter_width;
+    @include column(24,true);
+  }
 }

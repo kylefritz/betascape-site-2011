@@ -327,6 +327,23 @@ section.site-links nav ul li {
   margin-right: 30px;
 }
 /* line 43, ../sass/screen.scss */
+section.site-links nav ul li.current {
+  background: #199ccd;
+  padding: 13px;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 47, ../sass/screen.scss */
+section.site-links nav ul li.current a {
+  color: white;
+}
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+section.site-links nav ul li.current a:hover {
+  color: white;
+}
+/* line 51, ../sass/screen.scss */
 section.site-links nav ul li a {
   text-decoration: none;
   color: white;
@@ -335,22 +352,23 @@ section.site-links nav ul li a {
 section.site-links nav ul li a:hover {
   color: #199ccd;
 }
-/* line 48, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 section.site-links nav ul li.register {
   font-weight: bold;
   width: 240px;
   background: #cb602c;
   float: right;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   margin-top: -10px;
   margin-right: 0;
   -moz-box-shadow: 0px 0px 5px #333333;
   -webkit-box-shadow: 0px 0px 5px #333333;
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
+  letter-spacing: 2px;
 }
-/* line 58, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 section.site-links nav ul li.register a {
   color: white;
 }
@@ -359,25 +377,27 @@ section.site-links nav ul li.register a:hover {
   color: black;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
+  /*TODO: dry these next two up with a mix-in, they're almost the same*/
 }
-/* line 68, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 #container > header .date {
   color: #888;
   margin-bottom: 20px;
   text-shadow: #aaaaaa 0px 0px 1px;
 }
-/* line 72, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 #container > header .date a {
   color: inherit;
   text-decoration: inherit;
   cursor: inherit;
   text-decoration: none;
+  color: #888888;
 }
 /* line 6, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_unstyled-link.scss */
 #container > header .date a:active, #container > header .date a:focus {
@@ -387,12 +407,16 @@ section.site-links nav ul li.register a:hover {
 #container > header .date a:hover {
   text-decoration: underline;
 }
-/* line 78, ../sass/screen.scss */
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#container > header .date a:hover {
+  color: #199ccd;
+}
+/* line 88, ../sass/screen.scss */
 #container > header .logo h1 {
   display: none;
   /*use image instead of text*/
 }
-/* line 80, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 #container > header .view-source {
   float: right;
   background: rgba(0, 0, 0, 0.4);
@@ -401,7 +425,7 @@ section.site-links nav ul li.register a:hover {
   text-shadow: #aaaaaa 0px 0px 1px;
   font-size: 80%;
 }
-/* line 87, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #container > header .view-source a {
   text-decoration: none;
   color: white;
@@ -410,7 +434,11 @@ section.site-links nav ul li.register a:hover {
 #container > header .view-source a:hover {
   color: #cb602c;
 }
-/* line 99, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
+#container section {
+  text-shadow: #aaaaaa 0px 0px 1px;
+}
+/* line 111, ../sass/screen.scss */
 #container section.promo {
   margin-top: 80px;
   display: inline;
@@ -423,7 +451,7 @@ section.site-links nav ul li.register a:hover {
 * html #container section.promo {
   overflow-x: hidden;
 }
-/* line 103, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 #container section.promo header {
   padding: 20px;
   margin-bottom: 5px;
@@ -433,7 +461,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 108, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 #container section.promo header a {
   text-decoration: none;
   color: black;
@@ -444,7 +472,7 @@ section.site-links nav ul li.register a:hover {
 #container section.promo header a:hover {
   color: #cb602c;
 }
-/* line 115, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 #container section.promo footer {
   padding: 20px;
   background: #77ad38;
@@ -454,7 +482,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 120, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 #container section.promo footer a {
   color: white;
   text-decoration: none;
@@ -466,7 +494,7 @@ section.site-links nav ul li.register a:hover {
 #container section.promo footer a:hover {
   color: black;
 }
-/* line 129, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 #container section.description {
   background: #199ccd;
   color: white;
@@ -484,34 +512,89 @@ section.site-links nav ul li.register a:hover {
 * html #container section.description {
   overflow-x: hidden;
 }
-/* line 135, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 #container section.description > div {
   padding: 20px;
   padding-right: 120px;
   letter-spacing: 4px;
 }
-/* line 141, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 #container section.overview {
-  clear: both;
-  margin-top: 80px;
   display: inline;
   float: left;
   margin-right: 10px;
   width: 430px;
-  padding-right: 40px;
+  padding-right: 80px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.overview {
   overflow-x: hidden;
 }
-/* line 146, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
 #container section.overview header {
   padding: 10px;
   background: #d67f2a;
   color: white;
   font-weight: bold;
+  margin-bottom: 10px;
   -moz-box-shadow: 0px 0px 5px #333333;
   -webkit-box-shadow: 0px 0px 5px #333333;
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
+}
+/* line 165, ../sass/screen.scss */
+#container section.overview footer {
+  background: #199ccd;
+  font-size: 120%;
+  padding: 10px;
+  text-align: right;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+  text-shadow: #aaaaaa 0px 0px 1px;
+}
+/* line 172, ../sass/screen.scss */
+#container section.overview footer a {
+  text-decoration: none;
+  color: white;
+}
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#container section.overview footer a:hover {
+  color: black;
+}
+/* line 178, ../sass/screen.scss */
+#container section.locations {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 430px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.locations {
+  overflow-x: hidden;
+}
+/* line 180, ../sass/screen.scss */
+#container section.locations header {
+  padding: 10px;
+  background: #d67f2a;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 189, ../sass/screen.scss */
+#container section.whos-there, #container .overview-locations {
+  margin-top: 80px;
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.whos-there, * html #container .overview-locations {
+  overflow-x: hidden;
 }
