@@ -35,6 +35,7 @@ section.site-links{
       margin:0px auto;
     ul{
       padding-top:$gutter_width;
+      margin:0;
       li{
         list-style:none;
         display:inline;
@@ -52,6 +53,7 @@ section.site-links{
         text-align: center;
         padding: 2*$gutter_width;
         margin-top: -$gutter_width;
+        margin-right:0;
         @include single-box-shadow();
         a{
           @include link-colors(white,black);
@@ -75,6 +77,19 @@ section.site-links{
     .logo{
       h1{display:none; /*use image instead of text*/}
     }
+    .view-source{
+        float: right;
+        background:transparentize(black,.6);
+        margin-top:-3*$gutter_width;
+        padding:$gutter_width/2 $gutter_width;
+        @include single-text-shadow();
+        font-size:80%;
+        a{
+          text-decoration:none;
+          @include link-colors(white,$beta_red);
+        }
+    }
+
   }
 
 
@@ -89,6 +104,7 @@ section.site-links{
       padding: 2*$gutter_width;
       margin-bottom: $gutter_width/2;
       background:transparentize(#bde200,.2);
+      @include single-box-shadow();
       a{
         text-decoration:none;
         @include link-colors(black,$beta_red);
@@ -100,7 +116,7 @@ section.site-links{
       padding: 2*$gutter_width;
       background:$beta_green;
       text-align:center;
-
+      @include single-box-shadow();
       a{
         color:white;
         text-decoration:none;
@@ -115,6 +131,7 @@ section.site-links{
     color:white;
     @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
     font-size:130%;
+    @include single-box-shadow();
     & > div{
       padding: 2*$gutter_width;
       padding-right: 12*$gutter_width;
@@ -131,6 +148,7 @@ section.site-links{
       background:$beta_orange;
       color:white;
       font-weight:bold;
+    @include single-box-shadow();
     }
   }
 
