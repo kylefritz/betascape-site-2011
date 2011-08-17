@@ -18,7 +18,10 @@ $blueprint-font-size: 18px;
 $page_width:$blueprint-container-size;
 $col_width: $blueprint-grid-outer-width;
 $gutter_width: $blueprint-grid-margin;
-$beta_orange:#CB602C;
+$beta_red:#CB602C;
+$beta_orange:#d67f2a;
+$beta_blue:#199ccd;
+$beta_green:rgba(119,173,56,1.0);
 
 @include blueprint-typography;
 
@@ -37,18 +40,22 @@ section.site-links{
         display:inline;
         margin-right:$gutter_width*3;
         a{
-          color:white;
           text-decoration:none;
+          @include link-colors(white,$beta_blue);
         }
       }
       li.register{
+        font-weight:bold;
         width: 6*$col_width;
-        background:$beta_orange;
+        background:$beta_red;
         float: right;
         text-align: center;
         padding: 2*$gutter_width;
         margin-top: -$gutter_width;
         @include single-box-shadow();
+        a{
+          @include link-colors(white,black);
+        }
       }
     }
   }
@@ -58,6 +65,7 @@ section.site-links{
   & > header{
     .date{
       color:#888;
+      margin-bottom: 2*$gutter_width;
       @include single-text-shadow();
       a{
         @include unstyled-link;
@@ -74,7 +82,7 @@ section.site-links{
   $promo_number_columns:8;
   $promo_append_columns:1;
   section.promo{
-    $promo_green_base:rgba(119,173,56,1.0);
+    margin-top:8*$gutter_width;
     @include column($promo_number_columns);
     @include append($promo_append_columns);
     header{
@@ -83,25 +91,27 @@ section.site-links{
       background:transparentize(#bde200,.2);
       a{
         text-decoration:none;
-        @include link-colors(black,lighten(black,25%),black,black,black);
+        @include link-colors(black,$beta_red);
         @include text-shadow;
         font-weight:bold;
       }
     }
     footer{
       padding: 2*$gutter_width;
-      background:$promo_green_base;
+      background:$beta_green;
       text-align:center;
 
       a{
         color:white;
         text-decoration:none;
         font-size:120%;
+        font-weight:bold;
+        @include link-colors(white,black);
       }
     }
   }
   section.description{
-    background:#199ccd;
+    background:$beta_blue;
     color:white;
     @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
     font-size:130%;
@@ -109,6 +119,18 @@ section.site-links{
       padding: 2*$gutter_width;
       padding-right: 12*$gutter_width;
       letter-spacing:4px;
+    }
+  }
+  section.overview{
+    clear:both;
+    margin-top:8*$gutter_width;
+    @include column(11);
+    @include append(1);
+    header{
+      padding: $gutter_width;
+      background:$beta_orange;
+      color:white;
+      font-weight:bold;
     }
   }
 
