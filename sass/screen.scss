@@ -3,23 +3,27 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-$blueprint_grid_columns:24;
-/*should get this from blueprint*/
-$page_width:950px;
-$col_width:40px;
-$gutter_width:10px;
-
 @import "compass";
 @import "compass/reset";
 @import "blueprint";
+@import "blueprint/typography";
 
-html{
-  font-family:arial;
-}
-$site_links_black_height:$col_width;
+$blueprint_grid_columns:24;
+$blueprint-grid-width: 30px;
+$blueprint-grid-margin: 10px;
+$blueprint-font-size: 18px;
+/*$blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns - $blueprint-grid-margin; */
+
+/* page shortcuts */
+$page_width:$blueprint-container-size;
+$col_width: $blueprint-grid-outer-width;
+$gutter_width: $blueprint-grid-margin;
 $beta_orange:#CB602C;
+
+@include blueprint-typography;
+
 section.site-links{
-  height:$site_links_black_height;
+  height:$col_width;
   background:black;
   margin-bottom: $gutter_width;
   @include single-box-shadow();
@@ -38,7 +42,7 @@ section.site-links{
         }
       }
       li.register{
-        width: 4*$col_width;
+        width: 6*$col_width;
         background:$beta_orange;
         float: right;
         text-align: center;
@@ -51,4 +55,61 @@ section.site-links{
 }
 #container{
   @include container;
+  & > header{
+    .date{
+      color:#888;
+      @include single-text-shadow();
+      a{
+        @include unstyled-link;
+        @include hover-link;
+      }
+    }
+    .logo{
+      h1{display:none; /*use image instead of text*/}
+    }
+  }
+
+
+
+  $promo_number_columns:8;
+  $promo_append_columns:1;
+  section.promo{
+    $promo_green_base:rgba(119,173,56,1.0);
+    @include column($promo_number_columns);
+    @include append($promo_append_columns);
+    header{
+      padding: 2*$gutter_width;
+      margin-bottom: $gutter_width/2;
+      background:transparentize(#bde200,.2);
+      a{
+        text-decoration:none;
+        @include link-colors(black,lighten(black,25%),black,black,black);
+        @include text-shadow;
+        font-weight:bold;
+      }
+    }
+    footer{
+      padding: 2*$gutter_width;
+      background:$promo_green_base;
+      text-align:center;
+
+      a{
+        color:white;
+        text-decoration:none;
+        font-size:120%;
+      }
+    }
+  }
+  section.description{
+    background:#199ccd;
+    color:white;
+    @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
+    font-size:130%;
+    & > div{
+      padding: 2*$gutter_width;
+      padding-right: 12*$gutter_width;
+      letter-spacing:4px;
+    }
+  }
+
 }
