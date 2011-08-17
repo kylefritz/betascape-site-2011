@@ -1,44 +1,105 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=1024" />
-  <link rel="stylesheet" href="css/978.css" type="text/css">
-	<link rel="stylesheet" href="css/styles.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{{page.title}}</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="stylesheets/screen.css">
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
+
+
+  <script src="http://processingjs.org/content/download/processing-js-1.2.3/processing-1.2.3.min.js"></script>
+  <script>window.Processing || document.write("<script src='js/libs/processing-1.2.3.min.js'>\x3C/script>")</script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+
 </head>
-<body>
-<div class="wrapper">
-  <div id="header_row" class="row">
-    <div class="col3">
-      <a href="/"><img src="images/logo.gif" width="222" height="156" alt="Ignite Baltimore Logo"></a>
-    </div>
-    <div id="header_text">
-      <h1>Betascape</h1>
-      <div id="top_links">
-        <div>
-          <a href="about">ABOUT</a>
-          <a href="speaking">SPEAKING</a>
-          <a href="mailing_list">MAILING LIST</a>
-          <a href="contact">CONTACT</a>
-        </div>
-        <div>&nbsp;</div>
-      </div>
-    </div>
-    <div>&nbsp;</div>
-  </div>
 
-  {{ content }}
+<body lang="en">
+  <section class="site-links">
+	  	<nav>
+			 <ul>
+			 	<li class="current"><a href="#">Home</a></li>
+			 	<li><a href="#">Schedule</a></li>
+			 	<li><a href="#">Exhibitors</a></li>
+				<li><a href="#">Sponsors</a></li>
+				<li><a href="#">About</a></li>
+				<li class="register"><a href="#">Register Now ($30)</a></li>
+			 </ul>
+		</nav>
+  </section>
+  <div id="container">
+    <header>
+      <hgroup class="date">
+      The Weekend of September 23-25 in <a href="http://www.stationnorth.org/" target="_blank">Station North</a>
+      </hgroup>
+      <hgroup class="view-source">
+       <a href="https://github.com/kylefritz/betascape-site-2011" target="_blank">View Source</a>
+      </hgroup>
+      <hgroup class="logo">
+        <h1>betascape</h1>
+        <a href="/"><img src="/img/betascape_2011-logowhite.png" width="344" /></a>
+      </hgroup>
+    </header>
+      <!--
+      <script>
+        ribbons=null;
+        //called inside of processing to expose ribbons to js
+        exposeRibbons=function(r){
+          ribbons=r;
+        }
+        $(function(){
+          $('.content').mousemove(function(e){
+            ribbons.sometimesAddRibbon(e.pageX,e.pageY);
+          });
+        });
+      </script>
+      <canvas id="ribbons" data-processing-sources="/ribbons1/misc.pde
+      /ribbons1/Ribbon.pde
+      /ribbons1/RibbonSet.pde
+      /ribbons1/User_interaction.pde
+      /ribbons1/ribbons1.pde"></canvas>
+      -->
+    {{ content }}
+    <footer>
 
-  <p id="footer" class="row">
-  </p>
-</div>
-<script type="text/javascript">
-  console.log("fill in analytics code");
-  var _gaq=[['_setAccount','UA-***TODO**FILL**ME**IN****-1'],['_trackPageview'],['_trackPageLoadTime']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+    </footer>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+  <script>
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+
 </body>
 </html>
