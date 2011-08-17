@@ -1,0 +1,54 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+$blueprint_grid_columns:24;
+/*should get this from blueprint*/
+$page_width:950px;
+$col_width:40px;
+$gutter_width:10px;
+
+@import "compass";
+@import "compass/reset";
+@import "blueprint";
+
+html{
+  font-family:arial;
+}
+$site_links_black_height:$col_width;
+$beta_orange:#CB602C;
+section.site-links{
+  height:$site_links_black_height;
+  background:black;
+  margin-bottom: $gutter_width;
+  @include single-box-shadow();
+  nav{
+      width:$page_width;
+      margin:0px auto;
+    ul{
+      padding-top:$gutter_width;
+      li{
+        list-style:none;
+        display:inline;
+        margin-right:$gutter_width*3;
+        a{
+          color:white;
+          text-decoration:none;
+        }
+      }
+      li.register{
+        width: 4*$col_width;
+        background:$beta_orange;
+        float: right;
+        text-align: center;
+        padding: 2*$gutter_width;
+        margin-top: -$gutter_width;
+        @include single-box-shadow();
+      }
+    }
+  }
+}
+#container{
+  @include container;
+}
