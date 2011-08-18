@@ -28,7 +28,7 @@ $beta_green:rgba(119,173,56,1.0);
 section.site-links{
   height:$col_width;
   background:black;
-  margin-bottom: $gutter_width;
+  margin-bottom: 3.5*$gutter_width;
   @include single-box-shadow();
   nav{
       width:$page_width;
@@ -69,6 +69,17 @@ section.site-links{
         }
       }
     }
+    .date{
+      color:#888;
+      margin-top: 1.5*$gutter_width;
+      margin-bottom: 1.5*$gutter_width;
+      @include single-text-shadow();
+      a{
+        @include unstyled-link;
+        @include hover-link;
+        @include link-colors(#888,$beta_blue);
+      }
+    }
   }
 }
 .ribbons{
@@ -88,24 +99,16 @@ section.site-links{
   @include container;
   z-index:10;
   & > header{
+    margin-top:4*$gutter_width;
     z-index:9;
-    .date{
-      color:#888;
-      margin-bottom: 2*$gutter_width;
-      @include single-text-shadow();
-      a{
-        @include unstyled-link;
-        @include hover-link;
-        @include link-colors(#888,$beta_blue);
-      }
-    }
+    
     .logo{
       h1{display:none; /*use image instead of text*/}
     }
     .view-source{
         float: right;
         background:transparentize(black,.6);
-        margin-top:-3*$gutter_width;
+        margin-top:-4*$gutter_width;
         padding:$gutter_width/2 $gutter_width;
         @include single-text-shadow();
         font-size:80%;
