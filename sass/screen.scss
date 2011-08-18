@@ -71,9 +71,24 @@ section.site-links{
     }
   }
 }
+.ribbons{
+  @include container;
+  z-index:1;
+  canvas{
+    position:absolute;
+    margin-left:-140px;
+  }
+}
+
+#wrapper_container{
+  position:absolute;
+  width:100%;
+}
 #container{
   @include container;
+  z-index:10;
   & > header{
+    z-index:9;
     .date{
       color:#888;
       margin-bottom: 2*$gutter_width;
@@ -139,7 +154,7 @@ section{
     }
   }
   section.description{
-    background:$beta_blue;
+    background:transparentize($beta_blue,.2);
     color:white;
     @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
     font-size:130%;
@@ -189,5 +204,24 @@ section{
   section.whos-there,.overview-locations{
     margin-top:8*$gutter_width;
     @include column(24,true);
+    ul{
+      font-size:14px;
+      line-height:$gutter_width+14px+8px;/*$blueprint-font-size+1px;*/
+      li{
+        display:inline;
+        padding: $gutter_width/2 $gutter_width;
+        margin-right: $gutter_width/2;
+        color:white;
+        @include single-box-shadow();
+        &.color0{background:$beta_red;}
+        &.color1{background:$beta_orange;}
+        &.color2{background:$beta_green;}
+        &.color3{background:$beta_blue;}
+        a{
+          @include link-colors(white,black);
+          text-decoration:none;
+        }
+      }
+    }
   }
 }

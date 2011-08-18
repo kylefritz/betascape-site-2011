@@ -378,20 +378,45 @@ section.site-links nav ul li.register a:hover {
 }
 
 /* line 74, ../sass/screen.scss */
+.ribbons {
+  width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  z-index: 1;
+}
+/* line 77, ../sass/screen.scss */
+.ribbons canvas {
+  position: absolute;
+  margin-left: -140px;
+}
+
+/* line 83, ../sass/screen.scss */
+#wrapper_container {
+  position: absolute;
+  width: 100%;
+}
+
+/* line 87, ../sass/screen.scss */
 #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
+  z-index: 10;
   /*TODO: dry these next two up with a mix-in, they're almost the same*/
 }
-/* line 77, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
+#container > header {
+  z-index: 9;
+}
+/* line 92, ../sass/screen.scss */
 #container > header .date {
   color: #888;
   margin-bottom: 20px;
   text-shadow: #aaaaaa 0px 0px 1px;
 }
-/* line 81, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 #container > header .date a {
   color: inherit;
   text-decoration: inherit;
@@ -411,12 +436,12 @@ section.site-links nav ul li.register a:hover {
 #container > header .date a:hover {
   color: #199ccd;
 }
-/* line 88, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #container > header .logo h1 {
   display: none;
   /*use image instead of text*/
 }
-/* line 90, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 #container > header .view-source {
   float: right;
   background: rgba(0, 0, 0, 0.4);
@@ -425,7 +450,7 @@ section.site-links nav ul li.register a:hover {
   text-shadow: #aaaaaa 0px 0px 1px;
   font-size: 80%;
 }
-/* line 97, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 #container > header .view-source a {
   text-decoration: none;
   color: white;
@@ -434,11 +459,11 @@ section.site-links nav ul li.register a:hover {
 #container > header .view-source a:hover {
   color: #cb602c;
 }
-/* line 105, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 #container section {
   text-shadow: #aaaaaa 0px 0px 1px;
 }
-/* line 111, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 #container section.promo {
   margin-top: 80px;
   display: inline;
@@ -451,7 +476,7 @@ section.site-links nav ul li.register a:hover {
 * html #container section.promo {
   overflow-x: hidden;
 }
-/* line 115, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 #container section.promo header {
   padding: 20px;
   margin-bottom: 5px;
@@ -461,7 +486,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 120, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #container section.promo header a {
   text-decoration: none;
   color: black;
@@ -472,7 +497,7 @@ section.site-links nav ul li.register a:hover {
 #container section.promo header a:hover {
   color: #cb602c;
 }
-/* line 127, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #container section.promo footer {
   padding: 20px;
   background: #77ad38;
@@ -482,7 +507,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 132, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 #container section.promo footer a {
   color: white;
   text-decoration: none;
@@ -494,9 +519,9 @@ section.site-links nav ul li.register a:hover {
 #container section.promo footer a:hover {
   color: black;
 }
-/* line 141, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 #container section.description {
-  background: #199ccd;
+  background: rgba(25, 156, 205, 0.8);
   color: white;
   display: inline;
   float: left;
@@ -512,13 +537,13 @@ section.site-links nav ul li.register a:hover {
 * html #container section.description {
   overflow-x: hidden;
 }
-/* line 147, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 #container section.description > div {
   padding: 20px;
   padding-right: 120px;
   letter-spacing: 4px;
 }
-/* line 154, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 #container section.overview {
   display: inline;
   float: left;
@@ -530,7 +555,7 @@ section.site-links nav ul li.register a:hover {
 * html #container section.overview {
   overflow-x: hidden;
 }
-/* line 157, ../sass/screen.scss */
+/* line 172, ../sass/screen.scss */
 #container section.overview header {
   padding: 10px;
   background: #d67f2a;
@@ -542,7 +567,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 165, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 #container section.overview footer {
   background: #199ccd;
   font-size: 120%;
@@ -554,7 +579,7 @@ section.site-links nav ul li.register a:hover {
   box-shadow: 0px 0px 5px #333333;
   text-shadow: #aaaaaa 0px 0px 1px;
 }
-/* line 172, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 #container section.overview footer a {
   text-decoration: none;
   color: white;
@@ -563,7 +588,7 @@ section.site-links nav ul li.register a:hover {
 #container section.overview footer a:hover {
   color: black;
 }
-/* line 178, ../sass/screen.scss */
+/* line 193, ../sass/screen.scss */
 #container section.locations {
   display: inline;
   float: left;
@@ -574,7 +599,7 @@ section.site-links nav ul li.register a:hover {
 * html #container section.locations {
   overflow-x: hidden;
 }
-/* line 180, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 #container section.locations header {
   padding: 10px;
   background: #d67f2a;
@@ -586,7 +611,7 @@ section.site-links nav ul li.register a:hover {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
 }
-/* line 189, ../sass/screen.scss */
+/* line 204, ../sass/screen.scss */
 #container section.whos-there, #container .overview-locations {
   margin-top: 80px;
   display: inline;
@@ -597,4 +622,46 @@ section.site-links nav ul li.register a:hover {
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.whos-there, * html #container .overview-locations {
   overflow-x: hidden;
+}
+/* line 207, ../sass/screen.scss */
+#container section.whos-there ul, #container .overview-locations ul {
+  font-size: 14px;
+  line-height: 32px;
+  /*$blueprint-font-size+1px;*/
+}
+/* line 210, ../sass/screen.scss */
+#container section.whos-there ul li, #container .overview-locations ul li {
+  display: inline;
+  padding: 5px 10px;
+  margin-right: 5px;
+  color: white;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 216, ../sass/screen.scss */
+#container section.whos-there ul li.color0, #container .overview-locations ul li.color0 {
+  background: #cb602c;
+}
+/* line 217, ../sass/screen.scss */
+#container section.whos-there ul li.color1, #container .overview-locations ul li.color1 {
+  background: #d67f2a;
+}
+/* line 218, ../sass/screen.scss */
+#container section.whos-there ul li.color2, #container .overview-locations ul li.color2 {
+  background: #77ad38;
+}
+/* line 219, ../sass/screen.scss */
+#container section.whos-there ul li.color3, #container .overview-locations ul li.color3 {
+  background: #199ccd;
+}
+/* line 220, ../sass/screen.scss */
+#container section.whos-there ul li a, #container .overview-locations ul li a {
+  color: white;
+  text-decoration: none;
+}
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#container section.whos-there ul li a:hover, #container .overview-locations ul li a:hover {
+  color: black;
 }

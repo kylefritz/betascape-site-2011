@@ -43,48 +43,36 @@
   <section class="site-links">
 	  	<nav>
 			 <ul>
-			 	<li class="current"><a href="#">Home</a></li>
+			 	<li class="current"><a href="/">Home</a></li>
 			 	<li><a href="#">Schedule</a></li>
 			 	<li><a href="#">Exhibitors</a></li>
 				<li><a href="#">Sponsors</a></li>
 				<li><a href="#">About</a></li>
-				<li class="register"><a href="#">Register Now ($30)</a></li>
+				<li class="register"><a href="http://betascape2011.eventbrite.com/">Register Now ($30)</a></li>
 			 </ul>
 		</nav>
   </section>
-  <div id="container">
-    <header>
-      <hgroup class="date">
-      The Weekend of September 23-25 in <a href="http://www.stationnorth.org/" target="_blank">Station North</a>
-      </hgroup>
-      <hgroup class="view-source">
-       <a href="https://github.com/kylefritz/betascape-site-2011" target="_blank">View Source</a>
-      </hgroup>
-      <hgroup class="logo">
-        <h1>betascape</h1>
-        <a href="/"><img src="/img/betascape_2011-logowhite.png" width="344" /></a>
-      </hgroup>
-    </header>
-      <!--
-      <script>
-        ribbons=null;
-        //called inside of processing to expose ribbons to js
-        exposeRibbons=function(r){
-          ribbons=r;
-        }
-        $(function(){
-          $('.content').mousemove(function(e){
-            ribbons.sometimesAddRibbon(e.pageX,e.pageY);
-          });
-        });
-      </script>
-      <canvas id="ribbons" data-processing-sources="/ribbons1/misc.pde
-      /ribbons1/Ribbon.pde
-      /ribbons1/RibbonSet.pde
-      /ribbons1/User_interaction.pde
-      /ribbons1/ribbons1.pde"></canvas>
-      -->
-    {{ content }}
+    {% include ribbons.html %}
+    <div id="wrapper_container">
+    <div id="container">
+      <header>
+        <hgroup class="date">
+        The Weekend of September 23-25 in <a href="http://www.stationnorth.org/" target="_blank">Station North</a>
+        </hgroup>
+        <hgroup class="view-source">
+         <a href="https://github.com/kylefritz/betascape-site-2011" target="_blank">View Source</a>
+        </hgroup>
+        <hgroup class="logo">
+          <h1>betascape</h1>
+          <a href="/"><img src="/img/betascape-2011-logo.png" width="344" /></a>
+        </hgroup>
+      </header>
+
+      {{ content }}
+
+    </div>
+    </div>
+
     <footer>
 
     </footer>

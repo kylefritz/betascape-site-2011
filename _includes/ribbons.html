@@ -1,0 +1,23 @@
+<div class="ribbons">
+    <script>
+      ribbons=null;
+      //called inside of processing to expose ribbons to js
+      exposeRibbons=function(r){
+        ribbons=r;
+      }
+      $(function(){
+        $('#wrapper_container').mousemove(function(e){
+          var offset=$('#container').position();
+          if(typeof(ribbons)!="undefined"){
+            ribbons.sometimesAddRibbon(e.pageX-offset.left+140,e.pageY);
+          }
+        });
+      });
+    </script>
+    <canvas 
+    data-processing-sources="/ribbons/misc.pde
+    /ribbons/Ribbon.pde
+    /ribbons/RibbonSet.pde
+    /ribbons/User_interaction.pde
+    /ribbons/ribbons.pde"></canvas>
+</div>
