@@ -46,12 +46,9 @@ window.log = function(){
           var list = el.find('ul').first();
           for (var x=0; x < json.query.results.json.attendees.length; x++) {
             var a = json.query.results.json.attendees[x].attendee;
-            var text = a.first_name+'&nbsp;'+a.last_name+" ";
-            if (a.website) {
-              text = '<a href="'+a.website+'">'+text+'</a>';
-            }
-            //list.append('<li class="color'+(x%4)+'">'+text+'</li>');
-            list.append('<li class="color'+parseInt(Math.random()*4)+'">'+text+'</li>');
+            var name = a.first_name+'&nbsp;'+a.last_name+" ";
+            var html=format_attendee(name,a.website);
+            list.append(html);
           }
         });
       }
@@ -61,3 +58,11 @@ window.log = function(){
   };
 })(jQuery);
 
+format_attendee=function(name,website){
+    if (website) {
+      var text = '<a href="'+website+'">'+name+'</a>';
+    }else{
+      var text=name;
+    }
+    return '<li class="color'+parseInt(Math.random()*4)+'">'+text+' </li>';
+};
