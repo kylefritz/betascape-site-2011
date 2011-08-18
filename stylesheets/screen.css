@@ -517,7 +517,7 @@ section.site-links nav .date a:hover {
 #container section.promo footer a {
   color: white;
   text-decoration: none;
-  font-size: 120%;
+  font-size: 115%;
   color: white;
 }
 /* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
@@ -677,17 +677,18 @@ section.site-links nav .date a:hover {
   float: left;
   margin-right: 0;
   width: 950px;
+  margin-top: 80px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.sponsorship {
   overflow-x: hidden;
 }
-/* line 233, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 #container section.sponsorship h5 {
   margin-top: 20px;
   font-size: 110%;
 }
-/* line 237, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 #container section.sponsorship .sponsors {
   display: inline;
   float: left;
@@ -698,7 +699,7 @@ section.site-links nav .date a:hover {
 * html #container section.sponsorship .sponsors {
   overflow-x: hidden;
 }
-/* line 240, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 #container section.sponsorship .partners {
   display: inline;
   float: left;
@@ -709,7 +710,7 @@ section.site-links nav .date a:hover {
 * html #container section.sponsorship .partners {
   overflow-x: hidden;
 }
-/* line 243, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 #container section.sponsorship .supporters {
   display: inline;
   float: left;
@@ -719,4 +720,129 @@ section.site-links nav .date a:hover {
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.sponsorship .supporters {
   overflow-x: hidden;
+}
+/* line 248, ../sass/screen.scss */
+#container section.twitter {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+  margin-top: 80px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.twitter {
+  overflow-x: hidden;
+}
+/* line 251, ../sass/screen.scss */
+#container section.twitter .twtr-hd, #container section.twitter .twtr-ft {
+  display: none;
+}
+/* line 252, ../sass/screen.scss */
+#container section.twitter #tweet-id-3 {
+  border-bottom: none;
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 310px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.twitter #tweet-id-3 {
+  overflow-x: hidden;
+}
+/* line 253, ../sass/screen.scss */
+#container section.twitter #tweet-id-2 {
+  border-bottom: none;
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 310px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.twitter #tweet-id-2 {
+  overflow-x: hidden;
+}
+/* line 254, ../sass/screen.scss */
+#container section.twitter #tweet-id-1 {
+  border-bottom: none;
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 270px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.twitter #tweet-id-1 {
+  overflow-x: hidden;
+}
+/* line 255, ../sass/screen.scss */
+#container section.twitter .twtr-timeline {
+  height: auto;
+}
+/* line 257, ../sass/screen.scss */
+#container .coordinator {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 470px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container .coordinator {
+  overflow-x: hidden;
+}
+/* line 259, ../sass/screen.scss */
+#container .coordinator aside {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 150px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container .coordinator aside {
+  overflow-x: hidden;
+}
+/* line 262, ../sass/screen.scss */
+#container .coordinator > div {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 230px;
+  padding-right: 80px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container .coordinator > div {
+  overflow-x: hidden;
+}
+/* line 267, ../sass/screen.scss */
+#container .credits {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+  margin-top: 80px;
+  color: #888;
+  font-size: 85%;
+  text-shadow: #aaaaaa 0px 0px 1px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container .credits {
+  overflow-x: hidden;
+}
+/* line 273, ../sass/screen.scss */
+#container .credits a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  text-decoration: none;
+  color: #888888;
+}
+/* line 6, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_unstyled-link.scss */
+#container .credits a:active, #container .credits a:focus {
+  outline: none;
+}
+/* line 4, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+#container .credits a:hover {
+  text-decoration: underline;
+}
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+#container .credits a:hover {
+  color: #199ccd;
 }

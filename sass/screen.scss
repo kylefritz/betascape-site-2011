@@ -151,7 +151,7 @@ section{
       a{
         color:white;
         text-decoration:none;
-        font-size:120%;
+        font-size:115%;
         @include link-colors(white,black);
       }
     }
@@ -230,6 +230,7 @@ section{
   }
   section.sponsorship{
     @include column(24,true);
+    margin-top:8*$gutter_width;
     h5{
       margin-top:2*$gutter_width;
       font-size:110%;
@@ -244,4 +245,36 @@ section{
       @include column(6,true);
     }
   }
+  section.twitter{
+    @include column(24,true);
+    margin-top:8*$gutter_width;
+    .twtr-hd,.twtr-ft{display:none;}
+    #tweet-id-3{border-bottom:none;@include column(8);}
+    #tweet-id-2{border-bottom:none;@include column(8);}
+    #tweet-id-1{border-bottom:none;@include column(7,true);}
+    .twtr-timeline{height:auto;}
+  }
+  .coordinator{
+      @include column(12,true);
+      aside{
+        @include column(4);
+      }
+      & > div{
+        @include column(6,true);
+        @include append(2);
+      }
+  }
+  .credits{
+      @include column(24,true);
+      margin-top:8*$gutter_width;
+      color:#888;
+      font-size:85%;
+      @include single-text-shadow();
+      a{
+        @include unstyled-link;
+        @include hover-link;
+        @include link-colors(#888,$beta_blue);
+      }
+  }
 }
+

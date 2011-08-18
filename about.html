@@ -1,0 +1,51 @@
+---
+layout: default
+title: about betascape / Baltimore MD / September 23-25
+
+coordinators:
+  - name: Kyle Fritz
+    twitter: kylefritz
+    bio: Bicycle riding, biomedical, computer software engineer.
+  - name: Heather Sarkissian
+    bio: Business strategist, social entrepreneur, in search of good food.
+    twitter: hsarkissian
+  - name: Shervonne Cherry
+    bio: Creative Director for Mindgrub Technologies. Art/Design Obsessed. Foodie. Model when the schedule fits. Finds nothing ordinary about design. 
+    twitter: NoOrdnryCherry
+  - name: Matthew Forr
+    bio: UX Architect for Mindgrub Technologies, hacker at Baltimore Node. Really into the recently possible.
+    twitter: matthewforr
+---
+<h2>Betascape Overview</h2>
+<p>Betascape 2011 is a multi-day experience designed to bring artists and
+technologists together to Learn and Connect to Create. Attendees will
+participate in one day of learning and workshopping and a one-day
+CreateCamp.  The goal is to inspire artists and technologists to
+innovate at the intersection of art and technology in a whole new way.
+Betascape also aims to drive greater economic development for Baltimore
+by attracting and retaining technologists, artists and new companies.
+Betascape will be held from September 23 - 25th 2011 on Station North in
+Baltimore, Maryland, a designated Arts and Entertainment District in
+Baltimore City.</p>
+
+<p>The event is being organized by a group of volunteers, working in
+either technology or web design.  Our long term goal is to establish an
+annual event that is imparting real skills and providing new ideas and
+relationships for people to innovate @ the intersection of art and
+tech.</p>
+
+<h2>Coordinators</h2>
+{% for item in page.coordinators %}
+<section class="coordinator">
+  <aside>
+    <img src="/img/coordinators/{{item.twitter}}.jpeg"/>
+  </aside>
+  <div>
+    <h3>
+      {{item.name}}
+    </h3>
+    <p>{{item.bio}}</p>
+  <div>
+</section>
+{% endfor %}
+
