@@ -24,7 +24,9 @@ $beta_blue:#199ccd;
 $beta_green:rgba(119,173,56,1.0);
 
 @include blueprint-typography;
-
+body{
+font-family: 'Numans', sans-serif;
+}
 section.site-links{
   height:$col_width;
   background:black;
@@ -54,7 +56,6 @@ section.site-links{
         }
       }
       li.register{
-        font-weight:bold;
         width: 6*$col_width;
         background:$beta_red;
         float: right;
@@ -151,7 +152,6 @@ section{
         color:white;
         text-decoration:none;
         font-size:120%;
-        font-weight:bold;
         @include link-colors(white,black);
       }
     }
@@ -170,11 +170,11 @@ section{
   }
   /*TODO: dry these next two up with a mix-in, they're almost the same*/
   section.overview{
-    @include column(11);
-    @include append(2);
+    @include column(11,true);
+    margin-top:-230px;
     header{
       padding: $gutter_width;
-      background:$beta_orange;
+      background:transparentize($beta_orange,.2);
       color:white;
       font-weight:bold;
       margin-bottom:$gutter_width;
@@ -194,10 +194,11 @@ section{
     }
   }
   section.locations{
-    @include column(11,true);
+    @include column(11);
+    @include append(2);
     header{
       padding: $gutter_width;
-      background:$beta_orange;
+      background:$beta_red;
       color:white;
       font-weight:bold;
       margin-bottom:$gutter_width;
