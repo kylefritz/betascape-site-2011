@@ -1,5 +1,5 @@
 void mousePressed() {
-  ribbons.reset();
+  //ribbons.reset();
 }
 
 void keyPressed() {
