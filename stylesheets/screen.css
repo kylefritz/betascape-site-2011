@@ -553,8 +553,8 @@ section.site-links nav .date a:hover {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 430px;
-  margin-top: -230px;
+  width: 470px;
+  margin-top: -200px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.overview {
@@ -599,7 +599,7 @@ section.site-links nav .date a:hover {
   float: left;
   margin-right: 10px;
   width: 430px;
-  padding-right: 80px;
+  padding-right: 40px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #container section.locations {

@@ -170,8 +170,8 @@ section{
   }
   /*TODO: dry these next two up with a mix-in, they're almost the same*/
   section.overview{
-    @include column(11,true);
-    margin-top:-230px;
+    @include column(12,true);
+    margin-top:-200px;
     header{
       padding: $gutter_width;
       background:transparentize($beta_orange,.2);
@@ -195,7 +195,7 @@ section{
   }
   section.locations{
     @include column(11);
-    @include append(2);
+    @include append(1);
     header{
       padding: $gutter_width;
       background:$beta_red;
