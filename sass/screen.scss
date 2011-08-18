@@ -228,4 +228,20 @@ section{
       }
     }
   }
+  section.sponsorship{
+    @include column(24,true);
+    h5{
+      margin-top:2*$gutter_width;
+      font-size:110%;
+    }
+    .sponsors{
+      @include column(8);
+    }
+    .partners{
+      @include column(10);
+    }
+    .supporters{
+      @include column(6,true);
+    }
+  }
 }

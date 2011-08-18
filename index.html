@@ -19,6 +19,16 @@ overview:
     what: Station North Block Party
   - day: Sunday
     what: CreateCamp
+
+supporters:
+  - UMBC
+  - Hopkins Digital Media Lab
+  - High Zero
+  - BMA
+  - Baltimore Node
+  - Load of Fun
+  - Joe Squared
+
 ---
 <section class="promo">
   <header>
@@ -59,4 +69,31 @@ overview:
   <div class="attendees">&nbsp;</div>
 </section>
 
+<section class="sponsorship">
+  <section class="sponsors">
+    <header>
+      <h4>Our Sponsors<h4>
+    </header>
+    <a href="http://rwdfoundation.org/" target="_blank"><img src="/img/sponsorship/rwdlogo.png" title="The Robert W. Deutsch Foundation (Premier Sponsor)" /></a>
+    <h5>Thanks to our Premier Sponsor The Robert W. Deutsch Foundation</h5>
+  </section>
 
+  <section class="partners">
+    <header>
+      <h4>Our Partners<h4>
+    </header>
+    <a href="http://stationnorth.org" target="_blank"><img src="/img/sponsorship/stationnorthlogo.gif" title="Station North" /></a>
+    <a href="http://mica.edu" target="_blank"><img src="/img/sponsorship/micalogo.gif" title="MICA" /></a>
+  </section>
+
+  <section class="supporters">
+    <header>
+      <h4>Our Supporters<h4>
+    </header>
+    <ul>
+    {%for supporter in page.supporters%}
+      <li>{{supporter}}</li>
+    {% endfor %}
+    </ul>
+  </section>
+</section>

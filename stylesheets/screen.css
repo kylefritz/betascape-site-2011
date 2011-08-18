@@ -671,3 +671,52 @@ section.site-links nav .date a:hover {
 #container section.whos-there ul li a:hover, #container .overview-locations ul li a:hover {
   color: black;
 }
+/* line 231, ../sass/screen.scss */
+#container section.sponsorship {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.sponsorship {
+  overflow-x: hidden;
+}
+/* line 233, ../sass/screen.scss */
+#container section.sponsorship h5 {
+  margin-top: 20px;
+  font-size: 110%;
+}
+/* line 237, ../sass/screen.scss */
+#container section.sponsorship .sponsors {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 310px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.sponsorship .sponsors {
+  overflow-x: hidden;
+}
+/* line 240, ../sass/screen.scss */
+#container section.sponsorship .partners {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 390px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.sponsorship .partners {
+  overflow-x: hidden;
+}
+/* line 243, ../sass/screen.scss */
+#container section.sponsorship .supporters {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 230px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #container section.sponsorship .supporters {
+  overflow-x: hidden;
+}
