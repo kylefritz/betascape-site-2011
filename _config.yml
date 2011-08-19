@@ -1,4 +1,4 @@
 ---
-exclude: [bin,data]
+exclude: [config.rb, sass, README.md, Gemfile, Gemfile.lock, design]
 auto: true
 ---

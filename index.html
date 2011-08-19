@@ -1,34 +1,100 @@
----
-layout: default
-title: betascape / Baltimore MD / September 23-25
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-promo:
-  headline: Come to free events on Friday and register for Saturday and Sunday events
-  rest: Tickets include <a href="">lectures and workshops</a> on Saturday and <a href="">CreateCamp</a> on Sunday plus breakfast and lunch both days.
+  <title>betascape / Baltimore MD / September 23-25</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-description: Betascape is a weekend of Art and Technology in Baltimore MD. Come learn, connect, and create something with other artists, technologists, and everyone in between.
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-overview:
-  - day: Thursday
-    what: Kickoff Party, 9pm @ <a href="http://www.thewindupspace.com/">Wind Up Space</a> including beer tasting and bands
-  - day: Friday
-    what: <a href="http://outletbaltimore.tumblr.com/" target="_blank">Outlet Baltimore</a> Relaunch Party, 6pm @ <a href="http://themetrogallery.net/" target="_blank">Metro Gallery</a>
-  - day: Saturday
-    what: Lectures, conversations and workshops from 9a-5p. Station North Block Party from 6pm featuring bands and Baltimore's Food Trucks.
-  - day: Sunday
-    what: CreateCamp is basically a mini-hackathon, with the intent to get people experimenting and collaborating after spending the day before learning and meeting people
+  <link href='http://fonts.googleapis.com/css?family=Numans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/screen.css">
+  <script src="js/libs/modernizr-1.7.min.js"></script>
 
-supporters:
-  - UMBC
-  - Hopkins Digital Media Lab
-  - High Zero
-  - BMA
-  - Baltimore Node
-  - Load of Fun
-  - Joe Squared
 
----
-<script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
+
+
+  <script src="http://processingjs.org/content/download/processing-js-1.2.3/processing-1.2.3.min.js"></script>
+  <script>window.Processing || document.write("<script src='js/libs/processing-1.2.3.min.js'>\x3C/script>")</script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+
+</head>
+
+<body lang="en">
+  <section class="site-links">
+	  	<nav>
+			 <ul>
+			 	<li class="current"><a href="/">Home</a></li>
+			 	<li><a href="/schedule.html">Schedule</a></li>
+        <!--
+			 	<li><a href="#">Exhibitors</a></li>
+        -->
+				<li><a href="/#sponsorship">Sponsors</a></li>
+				<li><a href="/about.html">About</a></li>
+				<li class="register"><a href="http://betascape2011.eventbrite.com/">Register Now ($30)</a></li>
+			 </ul>
+      <header class="date">
+        The Weekend of September 23-25 in <a href="http://www.stationnorth.org/" target="_blank">Station North</a>
+      </header>
+      </nav>
+  </section>
+    <div class="ribbons">
+    <script>
+      ribbons=null;
+      //called inside of processing to expose ribbons to js
+      exposeRibbons=function(r){
+        ribbons=r;
+      }
+      $(function(){
+        $('#wrapper_container').mousemove(function(e){
+          var offset=$('#container').position();
+          if(typeof(ribbons)!="undefined"){
+            ribbons.sometimesAddRibbon(e.pageX-offset.left+140,e.pageY);
+          }
+        });
+      });
+    </script>
+    <canvas 
+    data-processing-sources="/ribbons/misc.pde
+    /ribbons/Ribbon.pde
+    /ribbons/RibbonSet.pde
+    /ribbons/User_Interaction.pde
+    /ribbons/ribbons.pde"></canvas>
+</div>
+
+    <div id="wrapper_container">
+    <div id="container">
+      <header>
+        <hgroup class="view-source">
+         <a href="https://github.com/kylefritz/betascape-site-2011" target="_blank">View Source</a>
+        </hgroup>
+        <hgroup class="logo">
+          <h1>betascape</h1>
+          <a href="/"><img src="/img/betascape-2011-logo.png" width="344" /></a>
+        </hgroup>
+      </header>
+
+      <script>
 $(function(){
 /*
 $('.attendees').eventbrite_attendees({
@@ -55,8 +121,8 @@ $('.attendees').eventbrite_attendees({
 </script>
 <section class="promo">
   <header>
-    <h3>{{ page.promo.headline }}</h3>
-    {{ page.promo.rest }}
+    <h3>Come to free events on Friday and register for Saturday and Sunday events</h3>
+    Tickets include <a href="">lectures and workshops</a> on Saturday and <a href="">CreateCamp</a> on Sunday plus breakfast and lunch both days.
   </header>
   <footer>
     <a href="http://betascape2011.eventbrite.com/">Register For Betascape</a>
@@ -64,7 +130,7 @@ $('.attendees').eventbrite_attendees({
 </section>
 
 <section class="description">
-<div>{{page.description}}</div>
+<div>Betascape is a weekend of Art and Technology in Baltimore MD. Come learn, connect, and create something with other artists, technologists, and everyone in between.</div>
 </section>
 
 <div class="overview-locations">
@@ -76,11 +142,23 @@ $('.attendees').eventbrite_attendees({
   <section class="overview">
     <header>Betascape Overview</header>
     <table>
-      {% for item in page.overview %}
-      <tr class="{% cycle 'odd', 'even' %} ">
-        <td>{{item.day}}</td><td>{{item.what}}</td>
+      
+      <tr class="odd ">
+        <td>Thursday</td><td>Kickoff Party, 9pm @ <a href="http://www.thewindupspace.com/">Wind Up Space</a> including beer tasting and bands</td>
       </tr>
-      {% endfor %}
+      
+      <tr class="even ">
+        <td>Friday</td><td><a href="http://outletbaltimore.tumblr.com/" target="_blank">Outlet Baltimore</a> Relaunch Party, 6pm @ <a href="http://themetrogallery.net/" target="_blank">Metro Gallery</a></td>
+      </tr>
+      
+      <tr class="odd ">
+        <td>Saturday</td><td>Lectures, conversations and workshops from 9a-5p. Station North Block Party from 6pm featuring bands and Baltimore's Food Trucks.</td>
+      </tr>
+      
+      <tr class="even ">
+        <td>Sunday</td><td>CreateCamp is basically a mini-hackathon, with the intent to get people experimenting and collaborating after spending the day before learning and meeting people</td>
+      </tr>
+      
     </table>
     <footer>
     <a href="/schedule.html">Full Schedule → </a>
@@ -120,9 +198,21 @@ $('.attendees').eventbrite_attendees({
       <h4>Our Supporters<h4>
     </header>
     <ul>
-    {%for supporter in page.supporters%}
-      <li>{{supporter}}</li>
-    {% endfor %}
+    
+      <li>UMBC</li>
+    
+      <li>Hopkins Digital Media Lab</li>
+    
+      <li>High Zero</li>
+    
+      <li>BMA</li>
+    
+      <li>Baltimore Node</li>
+    
+      <li>Load of Fun</li>
+    
+      <li>Joe Squared</li>
+    
     </ul>
   </section>
 </section>
@@ -164,3 +254,26 @@ new TWTR.Widget({
 </script>
 </section>
 
+
+
+      <footer class="credits">
+        Site Designed by <a target="blank" href="http://friendsoftheweb.com">Friends of the Web</a> &bull;
+        Developed by <a target="_blank" href="http://simplicitysignals.com">Kyle Fritz</a>
+      </footer>
+
+    </div>
+    </div>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+  <script>
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+
+</body>
+</html>

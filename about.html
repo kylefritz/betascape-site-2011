@@ -1,22 +1,100 @@
----
-layout: default
-title: about betascape / Baltimore MD / September 23-25
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-coordinators:
-  - name: Kyle Fritz
-    twitter: kylefritz
-    bio: Bicycle riding, biomedical, computer software engineer.
-  - name: Heather Sarkissian
-    bio: Business strategist, social entrepreneur, in search of good food.
-    twitter: hsarkissian
-  - name: Shervonne Cherry
-    bio: Creative Director for Mindgrub Technologies. Art/Design Obsessed. Foodie. Model when the schedule fits. Finds nothing ordinary about design. 
-    twitter: NoOrdnryCherry
-  - name: Matthew Forr
-    bio: UX Architect for Mindgrub Technologies, hacker at Baltimore Node. Really into the recently possible.
-    twitter: matthewforr
----
-<h2>Betascape Overview</h2>
+  <title>about betascape / Baltimore MD / September 23-25</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link href='http://fonts.googleapis.com/css?family=Numans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/screen.css">
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.6.2.min.js'>\x3C/script>")</script>
+
+
+  <script src="http://processingjs.org/content/download/processing-js-1.2.3/processing-1.2.3.min.js"></script>
+  <script>window.Processing || document.write("<script src='js/libs/processing-1.2.3.min.js'>\x3C/script>")</script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <!-- end scripts-->
+
+
+</head>
+
+<body lang="en">
+  <section class="site-links">
+	  	<nav>
+			 <ul>
+			 	<li class="current"><a href="/">Home</a></li>
+			 	<li><a href="/schedule.html">Schedule</a></li>
+        <!--
+			 	<li><a href="#">Exhibitors</a></li>
+        -->
+				<li><a href="/#sponsorship">Sponsors</a></li>
+				<li><a href="/about.html">About</a></li>
+				<li class="register"><a href="http://betascape2011.eventbrite.com/">Register Now ($30)</a></li>
+			 </ul>
+      <header class="date">
+        The Weekend of September 23-25 in <a href="http://www.stationnorth.org/" target="_blank">Station North</a>
+      </header>
+      </nav>
+  </section>
+    <div class="ribbons">
+    <script>
+      ribbons=null;
+      //called inside of processing to expose ribbons to js
+      exposeRibbons=function(r){
+        ribbons=r;
+      }
+      $(function(){
+        $('#wrapper_container').mousemove(function(e){
+          var offset=$('#container').position();
+          if(typeof(ribbons)!="undefined"){
+            ribbons.sometimesAddRibbon(e.pageX-offset.left+140,e.pageY);
+          }
+        });
+      });
+    </script>
+    <canvas 
+    data-processing-sources="/ribbons/misc.pde
+    /ribbons/Ribbon.pde
+    /ribbons/RibbonSet.pde
+    /ribbons/User_Interaction.pde
+    /ribbons/ribbons.pde"></canvas>
+</div>
+
+    <div id="wrapper_container">
+    <div id="container">
+      <header>
+        <hgroup class="view-source">
+         <a href="https://github.com/kylefritz/betascape-site-2011" target="_blank">View Source</a>
+        </hgroup>
+        <hgroup class="logo">
+          <h1>betascape</h1>
+          <a href="/"><img src="/img/betascape-2011-logo.png" width="344" /></a>
+        </hgroup>
+      </header>
+
+      <h2>Betascape Overview</h2>
 <p>Betascape 2011 is a multi-day experience designed to bring artists and
 technologists together to Learn and Connect to Create. Attendees will
 participate in one day of learning and workshopping and a one-day
@@ -35,18 +113,80 @@ relationships for people to innovate @ the intersection of art and
 tech.</p>
 
 <h2>Coordinators</h2>
-{% for item in page.coordinators %}
+
 <section class="coordinator">
   <aside>
-    <img src="/img/coordinators/{{item.twitter}}.jpeg"/>
+    <img src="/img/coordinators/kylefritz.jpeg"/>
   </aside>
   <div>
     <h3>
-      {{item.name}}
+      Kyle Fritz
     </h3>
-    <p><a href="http://twitter.com/{{item.twitter}}" target="_blank">@{{item.twitter}}</a></p>
-    <p>{{item.bio}}</p>
+    <p><a href="http://twitter.com/kylefritz" target="_blank">@kylefritz</a></p>
+    <p>Bicycle riding, biomedical, computer software engineer.</p>
   <div>
 </section>
-{% endfor %}
 
+<section class="coordinator">
+  <aside>
+    <img src="/img/coordinators/hsarkissian.jpeg"/>
+  </aside>
+  <div>
+    <h3>
+      Heather Sarkissian
+    </h3>
+    <p><a href="http://twitter.com/hsarkissian" target="_blank">@hsarkissian</a></p>
+    <p>Business strategist, social entrepreneur, in search of good food.</p>
+  <div>
+</section>
+
+<section class="coordinator">
+  <aside>
+    <img src="/img/coordinators/NoOrdnryCherry.jpeg"/>
+  </aside>
+  <div>
+    <h3>
+      Shervonne Cherry
+    </h3>
+    <p><a href="http://twitter.com/NoOrdnryCherry" target="_blank">@NoOrdnryCherry</a></p>
+    <p>Creative Director for Mindgrub Technologies. Art/Design Obsessed. Foodie. Model when the schedule fits. Finds nothing ordinary about design.</p>
+  <div>
+</section>
+
+<section class="coordinator">
+  <aside>
+    <img src="/img/coordinators/matthewforr.jpeg"/>
+  </aside>
+  <div>
+    <h3>
+      Matthew Forr
+    </h3>
+    <p><a href="http://twitter.com/matthewforr" target="_blank">@matthewforr</a></p>
+    <p>UX Architect for Mindgrub Technologies, hacker at Baltimore Node. Really into the recently possible.</p>
+  <div>
+</section>
+
+
+
+
+      <footer class="credits">
+        Site Designed by <a target="blank" href="http://friendsoftheweb.com">Friends of the Web</a> &bull;
+        Developed by <a target="_blank" href="http://simplicitysignals.com">Kyle Fritz</a>
+      </footer>
+
+    </div>
+    </div>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+  <script>
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]]; // Change UA-XXXXX-X to be your site's ID 
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+
+</body>
+</html>
