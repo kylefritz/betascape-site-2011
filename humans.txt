@@ -18,6 +18,7 @@
   Names (& URL): The Robert W. Deutsch Foundation (http://rwdfoundation.org/)
 
 /* SITE */
+  Source: https://github.com/kylefritz/betascape-site-2011
   Standards: HTML5, CSS3
   Components: Modernizr, jQuery
   Software: Jekyll, Compass, Ruby
