@@ -11,7 +11,7 @@
 $blueprint_grid_columns:24;
 $blueprint-grid-width: 30px;
 $blueprint-grid-margin: 10px;
-$blueprint-font-size: 18px;
+$blueprint-font-size: 14px;
 /*$blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns - $blueprint-grid-margin; */
 
 /* page shortcuts */
@@ -64,7 +64,11 @@ section.site-links{
         margin-top: -$gutter_width;
         margin-right:0;
         @include single-box-shadow();
-        letter-spacing:2px;
+        font-size:120%;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        -webkit-border-bottom-left-radius: 2px;
+        -webkit-border-bottom-right-radius: 2px;
         a{
           @include link-colors(white,black);
         }
@@ -104,6 +108,7 @@ section.site-links{
     z-index:9;
     
     .logo{
+      margin-bottom:$gutter_width*8;
       h1{display:none; /*use image instead of text*/}
     }
     .view-source{
@@ -111,6 +116,8 @@ section.site-links{
         background:transparentize(black,.6);
         margin-top:-4*$gutter_width;
         padding:$gutter_width/2 $gutter_width;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
         @include single-text-shadow();
         font-size:80%;
         a{
@@ -128,14 +135,14 @@ section{
   $promo_number_columns:8;
   $promo_append_columns:1;
   section.promo{
-    margin-top:8*$gutter_width;
+    margin-top:4*$gutter_width;
     @include column($promo_number_columns);
     @include append($promo_append_columns);
     header{
       padding: 2*$gutter_width;
-      margin-bottom: $gutter_width/2;
+      margin-bottom: $gutter_width;
       background:transparentize(#bde200,.2);
-      @include single-box-shadow();
+      @include single-box-shadow(#CCC, 0, 4px, 4px);
       a{
         text-decoration:none;
         @include link-colors(black,$beta_red);
@@ -144,14 +151,15 @@ section{
       }
     }
     footer{
-      padding: 2*$gutter_width;
+      padding: 1.6*$gutter_width 1*$gutter_width 1.3*$gutter_width;
       background:$beta_green;
       text-align:center;
-      @include single-box-shadow();
+      @include single-box-shadow(#CCC, 0, 4px, 4px);
       a{
         color:white;
         text-decoration:none;
-        font-size:115%;
+        font-size:120%;
+        font-weight:bold;
         @include link-colors(white,black);
       }
     }
@@ -160,33 +168,38 @@ section{
     background:transparentize($beta_blue,.2);
     color:white;
     @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
-    font-size:130%;
-    @include single-box-shadow();
+    font-size:180%;
+    line-height:140%;
+    font-weight:bold;
+    @include single-box-shadow(#CCC, 0, 4px, 4px);
     & > div{
-      padding: 2*$gutter_width;
-      padding-right: 12*$gutter_width;
-      letter-spacing:4px;
+      padding: 3.5*$gutter_width 3.2*$gutter_width 3.2*$gutter_width;
     }
   }
   /*TODO: dry these next two up with a mix-in, they're almost the same*/
   section.overview{
     @include column(12,true);
-    margin-top:-200px;
+    margin-top:-50px;
     header{
-      padding: $gutter_width;
+      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
       background:transparentize($beta_orange,.2);
+      font-size:120%;
       color:white;
       font-weight:bold;
-      margin-bottom:$gutter_width;
-     @include single-box-shadow();
+      margin-top:$gutter_width;
+    }
+    table {
+      margin-bottom:0;
     }
     footer{
       background:$beta_blue;
       font-size:120%;
-      padding:$gutter_width;
+      color:white;
+      font-weight:bold;
+      padding:$gutter_width $gutter_width * 1.5;
       text-align:right;
-      @include single-box-shadow();
-      @include single-text-shadow();
+      /*@include single-box-shadow();
+      @include single-text-shadow();*/
       a{
         text-decoration:none;
         @include link-colors(white,black);
@@ -197,12 +210,24 @@ section{
     @include column(11);
     @include append(1);
     header{
-      padding: $gutter_width;
+      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
       background:$beta_red;
+      font-size:120%;
       color:white;
       font-weight:bold;
-      margin-bottom:$gutter_width;
-      @include single-box-shadow();
+      margin-bottom:0;
+    }
+    iframe {
+      width:100%;
+    }
+    a {
+      background:$beta_orange;
+      color:white;
+      font-weight:bold;
+      padding:$gutter_width $gutter_width * 1.5;
+      display:block;
+      text-decoration:none;
+      width:auto;
     }
   }
   section.whos-there,.overview-locations{
@@ -210,13 +235,14 @@ section{
     @include column(24,true);
     ul{
       font-size:14px;
+      padding: 0;
       line-height:$gutter_width+14px+8px;/*$blueprint-font-size+1px;*/
       li{
         display:inline;
         padding: $gutter_width/2 $gutter_width;
         margin-right: $gutter_width/2;
         color:white;
-        @include single-box-shadow();
+        /*@include single-box-shadow();*/
         &.color0{background:$beta_red;}
         &.color1{background:$beta_orange;}
         &.color2{background:$beta_green;}
@@ -266,7 +292,7 @@ section{
   }
   .credits{
       @include column(24,true);
-      margin-top:8*$gutter_width;
+      margin:8*$gutter_width 0 3*$gutter_width;
       color:#888;
       font-size:85%;
       @include single-text-shadow();
