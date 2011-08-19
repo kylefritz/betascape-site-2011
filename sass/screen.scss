@@ -65,10 +65,7 @@ section.site-links{
         margin-right:0;
         @include single-box-shadow();
         font-size:120%;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-        -webkit-border-bottom-left-radius: 2px;
-        -webkit-border-bottom-right-radius: 2px;
+        @include border-top-radius(2px);
         a{
           @include link-colors(white,black);
         }
