@@ -3,19 +3,25 @@ layout: default
 title: about betascape / Baltimore MD / September 23-25
 
 coordinators:
-  - name: Kyle Fritz
-    twitter: kylefritz
-    bio: Bicycle riding, biomedical, computer software engineer.
-  - name: Heather Sarkissian
-    bio: Business strategist, social entrepreneur, in search of good food.
-    twitter: hsarkissian
-  - name: Shervonne Cherry
-    bio: Creative Director for Mindgrub Technologies. Art/Design Obsessed. Foodie. Model when the schedule fits. Finds nothing ordinary about design. 
-    twitter: NoOrdnryCherry
-  - name: Matthew Forr
-    bio: UX Architect for Mindgrub Technologies, hacker at Baltimore Node. Really into the recently possible.
-    twitter: matthewforr
+ - name: Shervonne Cherry
+   bio: Creative Director for Mindgrub Technologies. Art/Design Obsessed. Foodie. Model when the schedule fits. Finds nothing ordinary about design.
+   twitter: NoOrdnryCherry
+   web: noordinarycherry.com
+ - name: Matthew Forr
+   bio: UX Architect for Mindgrub Technologies, hacker at Baltimore Node. Really into the recently possible. 
+   twitter: matthewforr
+   web: www.matthewforr.com
+ - name: Kyle Fritz
+   twitter: kylefritz
+   bio: Bicycle riding, biomedical, computer software engineer.
+   web: simplicitysignals.com
+ - name: Heather Sarkissian
+   bio: Business strategist, social entrepreneur, in search of good food.
+   twitter: hsarkissian
+   web: www.heathersarkissian.com
+
 ---
+<section class="about">
 <h2>Betascape Overview</h2>
 <p>Betascape 2011 is a multi-day experience designed to bring artists and
 technologists together to Learn and Connect to Create. Attendees will
@@ -33,7 +39,9 @@ technology and design fields in Baltimore. Our long term goal is to establish an
 annual event that is imparting real skills and providing new ideas and
 relationships for people to innovate @ the intersection of art and
 tech.</p>
+</section>
 
+<section class="coordinators">
 <h2>Coordinators</h2>
 {% for item in page.coordinators %}
 <section class="coordinator">
@@ -42,11 +50,11 @@ tech.</p>
   </aside>
   <div>
     <h3>
-      {{item.name}}
+      <a href="http://{{item.web}}">{{item.name}}</a>
     </h3>
     <p><a href="http://twitter.com/{{item.twitter}}" target="_blank">@{{item.twitter}}</a></p>
     <p>{{item.bio}}</p>
   <div>
 </section>
 {% endfor %}
-
+</section>
