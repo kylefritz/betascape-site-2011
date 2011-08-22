@@ -21,8 +21,8 @@ $gutter_width: $blueprint-grid-margin;
 $beta_red:#CB602C;
 $beta_orange:#d67f2a;
 $beta_blue:#199ccd;
-$beta_green:rgba(119,173,56,1.0);
-
+$beta_drkgreen:rgba(119,173,56,1.0);
+$beta_green:#bde200;
 
 $default-box-shadow-color: #CCC;
 $default-box-shadow-h-offset: 0px;
@@ -172,7 +172,7 @@ section{
     header{
       padding: 2*$gutter_width;
       margin-bottom: $gutter_width;
-      background:transparentize(#bde200,.2);
+      background:transparentize($beta_green,.2);
       @include single-box-shadow();
       a{
         text-decoration:none;
@@ -183,7 +183,7 @@ section{
     }
     footer{
       padding: 1.6*$gutter_width 1*$gutter_width 1.3*$gutter_width;
-      background:$beta_green;
+      background:$beta_drkgreen;
       text-align:center;
       @include single-box-shadow();
       a{
@@ -238,7 +238,7 @@ section{
         /*@include single-box-shadow();*/
         &.color0{background:$beta_red;}
         &.color1{background:$beta_orange;}
-        &.color2{background:$beta_green;}
+        &.color2{background:$beta_drkgreen;}
         &.color3{background:$beta_blue;}
         a{
           @include link-colors(white,black);
@@ -276,7 +276,10 @@ section{
   section.about{
     @include prepend(6);
     @include column(18,true);
-    @include section-block($beta_green);
+    background:transparentize($beta_green,.2);
+    padding: 4*$gutter_width;
+    margin-left: 140px;
+    margin-bottom: 4*$gutter_width;
   }
   section.coordinators{
   @include column(24,true);
