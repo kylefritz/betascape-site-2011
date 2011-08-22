@@ -21,9 +21,43 @@ $gutter_width: $blueprint-grid-margin;
 $beta_red:#CB602C;
 $beta_orange:#d67f2a;
 $beta_blue:#199ccd;
-$beta_green:rgba(119,173,56,1.0);
+$beta_drkgreen:rgba(119,173,56,1.0);
+$beta_green:#bde200;
+
+$default-box-shadow-color: #CCC;
+$default-box-shadow-h-offset: 0px;
+$default-box-shadow-v-offset: 4px;
+$default-box-shadow-blur: 4px;
+
 
 @include blueprint-typography;
+@mixin section-block($top-color:$beta_orange, $bottom-color:$beta_blue){
+  &{
+    margin-top:-50px;
+    header{
+      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
+      background:transparentize($top-color,.2);
+      font-size:120%;
+      color:white;
+      font-weight:bold;
+      margin-top:$gutter_width;
+    }
+    footer{
+      background:$bottom-color;
+      font-size:120%;
+      font-weight:bold;
+      color:white;
+      padding:$gutter_width $gutter_width * 1.5;
+      text-align:right;
+      @include single-box-shadow();
+      @include single-text-shadow();
+      a{
+        text-decoration:none;
+        @include link-colors(white,black);
+      }
+    }
+  }
+}
 body{
 font-family: 'Numans', sans-serif;
 }
@@ -65,10 +99,7 @@ section.site-links{
         margin-right:0;
         @include single-box-shadow();
         font-size:120%;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-        -webkit-border-bottom-left-radius: 2px;
-        -webkit-border-bottom-right-radius: 2px;
+        @include border-bottom-radius(2px);
         a{
           @include link-colors(white,black);
         }
@@ -141,8 +172,8 @@ section{
     header{
       padding: 2*$gutter_width;
       margin-bottom: $gutter_width;
-      background:transparentize(#bde200,.2);
-      @include single-box-shadow(#CCC, 0, 4px, 4px);
+      background:transparentize($beta_green,.2);
+      @include single-box-shadow();
       a{
         text-decoration:none;
         @include link-colors(black,$beta_red);
@@ -152,9 +183,9 @@ section{
     }
     footer{
       padding: 1.6*$gutter_width 1*$gutter_width 1.3*$gutter_width;
-      background:$beta_green;
+      background:$beta_drkgreen;
       text-align:center;
-      @include single-box-shadow(#CCC, 0, 4px, 4px);
+      @include single-box-shadow();
       a{
         color:white;
         text-decoration:none;
@@ -171,63 +202,25 @@ section{
     font-size:180%;
     line-height:140%;
     font-weight:bold;
-    @include single-box-shadow(#CCC, 0, 4px, 4px);
+    @include single-box-shadow();
     & > div{
       padding: 3.5*$gutter_width 3.2*$gutter_width 3.2*$gutter_width;
     }
   }
-  /*TODO: dry these next two up with a mix-in, they're almost the same*/
+  
   section.overview{
     @include column(12,true);
-    margin-top:-50px;
-    header{
-      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
-      background:transparentize($beta_orange,.2);
-      font-size:120%;
-      color:white;
-      font-weight:bold;
-      margin-top:$gutter_width;
-    }
+    @include section-block();
     table {
-      margin-bottom:0;
-    }
-    footer{
-      background:$beta_blue;
-      font-size:120%;
-      color:white;
-      font-weight:bold;
-      padding:$gutter_width $gutter_width * 1.5;
-      text-align:right;
-      /*@include single-box-shadow();
-      @include single-text-shadow();*/
-      a{
-        text-decoration:none;
-        @include link-colors(white,black);
+        margin-bottom:0;
       }
-    }
   }
   section.locations{
     @include column(11);
     @include append(1);
-    header{
-      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
-      background:$beta_red;
-      font-size:120%;
-      color:white;
-      font-weight:bold;
-      margin-bottom:0;
-    }
+    @include section-block($beta_red,$beta_orange);
     iframe {
       width:100%;
-    }
-    a {
-      background:$beta_orange;
-      color:white;
-      font-weight:bold;
-      padding:$gutter_width $gutter_width * 1.5;
-      display:block;
-      text-decoration:none;
-      width:auto;
     }
   }
   section.whos-there,.overview-locations{
@@ -245,7 +238,7 @@ section{
         /*@include single-box-shadow();*/
         &.color0{background:$beta_red;}
         &.color1{background:$beta_orange;}
-        &.color2{background:$beta_green;}
+        &.color2{background:$beta_drkgreen;}
         &.color3{background:$beta_blue;}
         a{
           @include link-colors(white,black);
@@ -280,8 +273,19 @@ section{
     #tweet-id-1{border-bottom:none;@include column(7,true);}
     .twtr-timeline{height:auto;}
   }
+  section.about{
+    @include prepend(6);
+    @include column(18,true);
+    background:transparentize($beta_green,.2);
+    padding: 4*$gutter_width;
+    margin-left: 140px;
+    margin-bottom: 4*$gutter_width;
+  }
+  section.coordinators{
+  @include column(24,true);
   .coordinator{
       @include column(12,true);
+      height: 250px;
       aside{
         @include column(4);
       }
@@ -289,6 +293,7 @@ section{
         @include column(6,true);
         @include append(2);
       }
+  }
   }
   .credits{
       @include column(24,true);

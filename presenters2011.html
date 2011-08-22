@@ -1,0 +1,37 @@
+---
+layout: default
+title: betascape presenters 2011
+---
+<script>
+$(function(){
+  betascape.getPresenters(function(presenters){
+      var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
+      var listTmpl=_.template($('#people-template').html());
+      var html=listTmpl({byPresentType : byPresentType});
+      $('.presenters').append(html);
+  });
+});
+
+</script>
+<script type="template" id="people-template">
+  <% for(var presentType in byPresentType){ %>
+    <% var people=byPresentType[presentType]; %>
+    <li>
+    <h3><%= presentType %></h3>
+    <ul>
+    <% _.each(people, function(person) { %>
+      <li class='presenter'>
+        <h4><a href='<%= person.website %>'><%= person.name %></a></h4>
+        <p class='bio'><%= person.bio %></p>
+        <p class='atbetascape'><%= person.atBetascape %></p>
+      </li>
+    <% }); %>
+    </ul>
+    </li>
+  <% } %>
+</script>
+<section class="presenters2011">
+  <header><h2>Presenters 2011</h2></header>
+  <ul class="presenters"></ul>
+</section>
+
