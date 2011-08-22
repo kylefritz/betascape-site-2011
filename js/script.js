@@ -22,6 +22,8 @@ betascape={
                 presenter.bio=content;
               }else if(colLetter==="d"){
                 presenter.website=content;
+              }else if(colLetter=="e"){
+                presenter.atBetascape=content;
               }else{
                 if(typeof(console)!="undefined"){
                   console.log('whats that?',colLetter,content);
