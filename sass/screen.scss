@@ -231,9 +231,11 @@ section{
       padding: 0;
       line-height:$gutter_width+14px+8px;/*$blueprint-font-size+1px;*/
       li{
-        display:inline;
-        padding: $gutter_width/2 $gutter_width;
+        display: inline-block;
+        padding: 0px 7px;
         margin-right: $gutter_width/2;
+        margin-bottom: $gutter_width;
+
         color:white;
         /*@include single-box-shadow();*/
         &.color0{background:$beta_red;}
