@@ -99,7 +99,7 @@ section.site-links{
         margin-right:0;
         @include single-box-shadow();
         font-size:120%;
-        @include border-top-radius(2px);
+        @include border-bottom-radius(2px);
         a{
           @include link-colors(white,black);
         }
