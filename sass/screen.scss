@@ -276,6 +276,7 @@ section{
   section.about{
     @include prepend(6);
     @include column(18,true);
+    @include single-box-shadow;
     background:transparentize($beta_green,.2);
     padding: 4*$gutter_width;
     margin-left: 140px;
