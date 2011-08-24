@@ -21,7 +21,12 @@ $(function(){
     <ul>
     <% _.each(people, function(person) { %>
       <li class='presenter'>
-        <h4><a href='<%= person.website %>'><%= person.name %></a></h4>
+        <h4>
+          <a target="_blank" href='<%= person.website %>'><%= person.name %></a>
+          <% if(person.twitter){ %>
+            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+          <% } %>
+        </h4>
         <p class='bio'><%= person.bio %></p>
         <p class='atbetascape'><%= person.atBetascape %></p>
       </li>
