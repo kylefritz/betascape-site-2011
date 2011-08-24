@@ -3,8 +3,8 @@
 */
 betascape={
   changeCurrent:function(changeTo){
-    $('nav li.current').removeClass('.current');
-    $('nav li.'+changeTo).addClass('.current');
+    $('nav li.current').removeClass('current');
+    $('nav li.'+changeTo).addClass('current');
   }
   , getPresenters:function(callback){
     $.getJSON(

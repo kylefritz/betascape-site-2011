@@ -42,7 +42,7 @@ $('.attendees').eventbrite_attendees({
   betascape.getPresenters(function(presenters){
       var listTmpl=_.template($('#people-template').html());
       var html=listTmpl({people : presenters});
-      $('.presenters').append(html);
+      $('.whos-there .presenters').append(html);
   });
   $.getJSON("http://betascape.tumblr.com/api/read/json?num=1&callback=?",function(data,status){
     $('.description .current-blog')

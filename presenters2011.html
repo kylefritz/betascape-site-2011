@@ -10,7 +10,7 @@ $(function(){
       var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
       var listTmpl=_.template($('#people-template').html());
       var html=listTmpl({byPresentType : byPresentType});
-      $('.presenters').append(html);
+      $('.presenters2011 .presenters').append(html);
   });
 });
 
