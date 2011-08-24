@@ -44,6 +44,10 @@ $('.attendees').eventbrite_attendees({
       var html=listTmpl({people : presenters});
       $('.presenters').append(html);
   });
+  $.getJSON("http://betascape.tumblr.com/api/read/json?num=1&callback=?",function(data,status){
+    $('.description .current-blog')
+      .html(data.posts[0]["regular-body"]);
+  });
 });
 
 </script>
@@ -66,7 +70,8 @@ $('.attendees').eventbrite_attendees({
 </section>
 
 <section class="description">
-<div>{{page.description}}</div>
+  <div class="current-blog">{{page.description}}</div>
+  <div class="more-blog"><a href="http://betascape.tumblr.com" target="_blank">Read more on our blog → </a></div>
 </section>
 
 <div class="overview-locations">
@@ -74,7 +79,7 @@ $('.attendees').eventbrite_attendees({
     <header>Event Locations</header>
     <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?msa=0&amp;ie=UTF8&amp;vpsrc=0&amp;msid=200303818173214935563.0004aac0452b1f8a2073e&amp;ll=39.310044,-76.617812&amp;spn=0.002395,0.002583&amp;output=embed"></iframe>
     <footer>
-    <a href="http://maps.google.com/maps/ms?msid=200303818173214935563.0004aac0452b1f8a2073e&msa=0" target="_blank">View in own window</a>
+    <a href="http://maps.google.com/maps/ms?msid=200303818173214935563.0004aac0452b1f8a2073e&msa=0" target="_blank">View in own window → </a>
     </footer>
   </section>
   <section class="overview">

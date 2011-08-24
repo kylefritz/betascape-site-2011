@@ -21,40 +21,45 @@ coordinators:
    web: www.heathersarkissian.com
 
 ---
+<script>
+  $(function(){
+    betascape.changeCurrent('about')
+  });
+</script>
 <section class="about">
-<h2>Betascape Overview</h2>
-<p>Betascape 2011 is a multi-day experience designed to bring artists and
-technologists together to Learn and Connect to Create. Attendees will
-participate in one day of learning and workshopping and a one-day
-CreateCamp.  The goal is to inspire artists and technologists to
-innovate at the intersection of art and technology in a whole new way.
-Betascape also aims to support the growing community of artists and technologists
-in and around Baltimore, in order to drive greater economic development.
-Betascape will be held from September 23 - 25th 2011 in Station North in
-Baltimore, Maryland, a designated Arts and Entertainment District in
-Baltimore City.</p>
+  <h2>Betascape Overview</h2>
+  <p>Betascape 2011 is a multi-day experience designed to bring artists and
+  technologists together to Learn and Connect to Create. Attendees will
+  participate in one day of learning and workshopping and a one-day
+  CreateCamp.  The goal is to inspire artists and technologists to
+  innovate at the intersection of art and technology in a whole new way.
+  Betascape also aims to support the growing community of artists and technologists
+  in and around Baltimore, in order to drive greater economic development.
+  Betascape will be held from September 23 - 25th 2011 in Station North in
+  Baltimore, Maryland, a designated Arts and Entertainment District in
+  Baltimore City.</p>
 
-<p>The event is being organized by a group of volunteers, working in 
-technology and design fields in Baltimore. Our long term goal is to establish an
-annual event that is imparting real skills and providing new ideas and
-relationships for people to innovate @ the intersection of art and
-tech.</p>
-</section>
+  <p>The event is being organized by a group of volunteers, working in 
+  technology and design fields in Baltimore. Our long term goal is to establish an
+  annual event that is imparting real skills and providing new ideas and
+  relationships for people to innovate @ the intersection of art and
+  tech.</p>
+  </section>
 
-<section class="coordinators">
-<h2>Coordinators</h2>
-{% for item in page.coordinators %}
-<section class="coordinator">
-  <aside>
-    <img src="/img/coordinators/{{item.twitter}}.jpeg"/>
-  </aside>
-  <div>
-    <h3>
-      <a href="http://{{item.web}}">{{item.name}}</a>
-    </h3>
-    <p><a href="http://twitter.com/{{item.twitter}}" target="_blank">@{{item.twitter}}</a></p>
-    <p>{{item.bio}}</p>
-  <div>
-</section>
-{% endfor %}
+  <section class="coordinators">
+  <h2>Coordinators</h2>
+  {% for item in page.coordinators %}
+  <section class="coordinator">
+    <aside>
+      <img src="/img/coordinators/{{item.twitter}}.jpeg"/>
+    </aside>
+    <div>
+      <h3>
+        <a href="http://{{item.web}}">{{item.name}}</a>
+      </h3>
+      <p><a href="http://twitter.com/{{item.twitter}}" target="_blank">@{{item.twitter}}</a></p>
+      <p>{{item.bio}}</p>
+    <div>
+  </section>
+  {% endfor %}
 </section>

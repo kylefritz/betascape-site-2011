@@ -2,7 +2,11 @@
 
 */
 betascape={
-  getPresenters:function(callback){
+  changeCurrent:function(changeTo){
+    $('nav li.current').removeClass('.current');
+    $('nav li.'+changeTo).addClass('.current');
+  }
+  , getPresenters:function(callback){
     $.getJSON(
       "https://spreadsheets.google.com/feeds/cells/0AvQ7pVUg-X_RdDlYZ0hUNVFOWEItMTBqNGk4YkFuUkE/od6/public/basic?authkey=CN2q874D&alt=json-in-script&callback=?",
       function(data,status){

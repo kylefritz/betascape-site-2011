@@ -4,6 +4,8 @@ title: betascape presenters 2011
 ---
 <script>
 $(function(){
+  betascape.changeCurrent('presenters')
+
   betascape.getPresenters(function(presenters){
       var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
       var listTmpl=_.template($('#people-template').html());
