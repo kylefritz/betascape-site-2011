@@ -23,6 +23,8 @@ betascape={
               }else if(colLetter==="c"){
                 presenter.bio=content;
               }else if(colLetter==="d"){
+                //thank-you very much @abachman!
+                if (content.trim().length) content= /^https?:\/\//i.test(content) ? content : "http://" + content;
                 presenter.website=content;
               }else if(colLetter=="e"){
                 presenter.atBetascape=content;
