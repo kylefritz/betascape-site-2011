@@ -1,0 +1,95 @@
+.blog{
+  h1,h2,h3,h4 {font-weight:bold;text-transform:uppercase;}
+  h1 {font-size:3em;line-height:1;font-weight:bold;display:inline;background-color:#fff;letter-spacing:-1px;}
+  h1 a {text-decoration:none;}
+  h2 {font-size:2em;letter-spacing:-1px;}
+  h3 {font-size:1.5em;}
+  h4 {font-size:1.2em;margin-bottom:1.25em;}
+  h1 img, h2 img, h3 img, h4 img {margin:0;}
+  p {margin:0 0 1.5em;}
+  p img.left {float:left;margin:0 0.5em 0 0;padding:0;}
+  p img.right {float:right;margin:1.5em 0 1.5em 1.5em;}
+  a:focus, a:hover {text-decoration:none;}
+  a {color:#000;text-decoration:underline;}
+  blockquote {margin:1em;color:#666;font-style:italic;background-color:#eaeff2;border-left:3px solid #95a0a9;padding-left:.5em;}
+  strong {font-weight:bold;}
+  em, dfn {font-style:italic;}
+  pre {margin:1.5em 0;white-space:pre;}
+  pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
+  li ul, li ol {margin:0 1.5em;}
+  ul, ol {margin:0 0 1.5em 0;}
+  ul {list-style-type:none;}
+  ol {list-style-type:decimal;}			
+  .container {width:880px;margin:0 auto;}
+  .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+  .clearfix, .container {display:block;}
+  .clear {clear:both;}
+  .containment {margin-top:44px;}
+  .content {width:560px;margin-right:80px;float:left;}
+  .navigation {width:200px;float:left;background-color:#fff;padding:20px;}
+  .navigation .description {font-size:1.5em;margin-bottom:1em;}
+  .navigation .links {font-size:1.1667em;line-height:1.286;margin-top:1.286em;}
+  .navigation .attribution {margin-bottom:0;}
+  .navigation #query {height:18px;font-size:1.25em;border:1px solid #333;width:146px;color:#666;padding:0;margin:0;float:left;}
+  .navigation #search {height:20px;border:1px solid #333;width:50px;text-transform:uppercase;padding:0;margin:0;float:left;background-color:#fff;}
+  .navigation ul.icons li {display:inline;margin:0;padding:0;float:left;height:40px;}
+  .post {width:500px;padding:20px;margin-bottom:40px;background-color:#fff;}
+  .post .caption {font-size:1.1667em;text-align:left;margin-top:1.286em;}
+  .quote {border-left:20px solid #ed008c;}
+  .link {border-left:20px solid #00aef0;}
+  .photo {border-left:20px solid #6cc071;}
+  .video {border-left:20px solid #a957c8;}
+  .chat {border-left:20px solid #ff5954}
+  .audio {border-left:20px solid #f5ee4f}
+  .text {border-left:20px solid #32bebc}
+  .text img {
+    max-width: 100%;
+  }
+
+  .quote .quotation {
+    font-family:"Hoefler Text", "Garamond", "Palatino", "Palatino Linotype", serif;
+    background-color:#ffc61f;font-size:2em;
+  }
+  .post .date {text-align:right;font-size:2em;color:#222;}
+  .photo {text-align:center;}
+  .chat li.odd {background-color:#efebe8;border-bottom:1px solid #b7b8b6;}
+  .chat li.even {border-bottom:1px solid #b7b8b6;}
+  .chat span.label {font-size:1.1667em;}
+  .chat .odd span.label {color:#0076a5;}
+  .chat .even span.label {color:#dd318b;}
+  .post .permalink {margin-top:1.5em;}
+  .post .permalink .notes {width:260px;float:left;text-align:left;}
+  .post .permalink .time-ago {width:230px;float:right;text-align:right;}
+  .tumblr {background:url('http://static.tumblr.com/rensj7n/fw4kg84xg/more_icons.png') no-repeat -350px 0px; height:45px; width:64px;}
+  ol.notes {padding:0px;margin:25px 0px;list-style-type:none;border-bottom:solid 1px #ccc;text-align:left;}
+  ol.notes li.note {border-top:solid 1px #ccc;padding:10px;}
+  ol.notes li.note img.avatar {vertical-align:-4px;margin-right:10px;width:16px;height:16px;}
+  ol.notes li.note span.action {font-weight:bold;}
+  ol.notes li.note .answer_content {font-weight:normal;}
+  ol.notes li.note blockquote {border-left:2px solid #eee;padding:4px 10px;margin:10px 0px 0px 25px;}
+  ol.notes li.note blockquote a {text-decoration: none;}
+  .pagination {width:520px;padding:20px;margin-bottom:20px;background-color:#fff;}
+  .pagination .previous, .pagination .next {text-transform:uppercase;font-weight:bold;font-size:2em;}
+  .pagination .previous {width:210px;float:left;text-align:left;}
+  .pagination .count {width:100px;float:left;text-align:center;}
+  .pagination .next {width:210px;float:left;text-align:right;}
+  h1,h2,h3,h4,.post .date,.chat span.label,.pagination .previous, .pagination .next,.navigation #query {
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .post .permalink .source-url {
+    margin-left: 8px;
+    text-decoration: none;
+  }
+  .post .permalink .source-url span {
+    text-decoration: underline;
+  }
+  .post .permalink .source-url:hover span {
+    text-decoration: none;
+  }
+  .post .permalink .source-url img {
+    vertical-align: text-top;
+    margin-left: 1px;
+  }
+  
+}

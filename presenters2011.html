@@ -4,11 +4,13 @@ title: betascape presenters 2011
 ---
 <script>
 $(function(){
+  betascape.changeCurrent('presenters')
+
   betascape.getPresenters(function(presenters){
       var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
       var listTmpl=_.template($('#people-template').html());
       var html=listTmpl({byPresentType : byPresentType});
-      $('.presenters').append(html);
+      $('.presenters2011 .presenters').append(html);
   });
 });
 
@@ -21,7 +23,12 @@ $(function(){
     <ul>
     <% _.each(people, function(person) { %>
       <li class='presenter'>
-        <h4><a href='<%= person.website %>'><%= person.name %></a></h4>
+        <h4>
+          <a target="_blank" href='<%= person.website %>'><%= person.name %></a>
+          <% if(person.twitter){ %>
+            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+          <% } %>
+        </h4>
         <p class='bio'><%= person.bio %></p>
         <p class='atbetascape'><%= person.atBetascape %></p>
       </li>

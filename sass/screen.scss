@@ -30,6 +30,21 @@ $default-box-shadow-v-offset: 4px;
 $default-box-shadow-blur: 4px;
 
 
+.ie6,.ie7,.ie8{
+  #container{
+    section.whos-there{
+      ul{
+        li{
+          /*ie doesn't support inline-block*/
+          display:inline;
+          padding: 5px 10px;
+          margin-right: 5px;
+          }
+      }
+    }
+  }
+}
+
 @include blueprint-typography;
 @mixin section-block($top-color:$beta_orange, $bottom-color:$beta_blue){
   &{
@@ -84,6 +99,10 @@ section.site-links{
             @include link-colors(white,white);
           }
         }
+        &.current.schedule{color:$beta_orange;}
+        &.current.presenters{color:$beta_green;}
+        &.current.about{color:$beta_drkgreen;}
+
         a{
           text-decoration:none;
           @include link-colors(white,$beta_blue);
@@ -198,13 +217,22 @@ section{
   section.description{
     background:transparentize($beta_blue,.2);
     color:white;
+    a{
+      @include link-colors(white,white);
+      @include single-text-shadow;
+      text-decoration:none;
+    }
     @include column($blueprint_grid_columns - $promo_append_columns - $promo_number_columns,true);
-    font-size:180%;
-    line-height:140%;
-    font-weight:bold;
     @include single-box-shadow();
-    & > div{
-      padding: 3.5*$gutter_width 3.2*$gutter_width 3.2*$gutter_width;
+    .current-blog{
+      padding: 3.5*$gutter_width 3.2*$gutter_width 0;
+      font-size:180%;
+      line-height:140%;
+      font-weight:bold;
+    }
+    .more-blog{
+      padding: .5*$gutter_width 3.2*$gutter_width 3.2*$gutter_width;
+      text-align:right;
     }
   }
   
@@ -231,9 +259,11 @@ section{
       padding: 0;
       line-height:$gutter_width+14px+8px;/*$blueprint-font-size+1px;*/
       li{
-        display:inline;
-        padding: $gutter_width/2 $gutter_width;
+        display: inline-block;
+        padding: 0px 7px;
         margin-right: $gutter_width/2;
+        margin-bottom: $gutter_width;
+
         color:white;
         /*@include single-box-shadow();*/
         &.color0{background:$beta_red;}
@@ -276,6 +306,7 @@ section{
   section.about{
     @include prepend(6);
     @include column(18,true);
+    @include single-box-shadow;
     background:transparentize($beta_green,.2);
     padding: 4*$gutter_width;
     margin-left: 140px;
@@ -309,3 +340,22 @@ section{
   }
 }
 
+@import "blog";
+
+.blog{
+
+  section.blog{
+      @include column(14,true);
+      @include append(2);
+  }
+  aside.blog-sidebar{
+      @include prepend(1);
+      @include column(6,true);
+      @include append(1);
+      @include single-box-shadow;
+      background:$beta_green;
+      padding-top:$col_width;
+      padding-bottom:$col_width;
+  }
+
+}
