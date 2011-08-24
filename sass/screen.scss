@@ -258,10 +258,10 @@ section{
       @include column(8);
     }
     .partners{
-      @include column(10);
+      @include column(8);
     }
     .supporters{
-      @include column(6,true);
+      @include column(8,true);
     }
   }
   section.twitter{
