@@ -10,7 +10,7 @@ betascape={
         var presenters=_.map(rows,function(row){
           var presenter={};
           var lectureTypeLookup={i:"Interactive Lounge",l:"Lectures",
-                                 w:"Workshops",c:"Conversations"
+                                 w:"Workshops",c:"Conversations",
                                  ccf:"CreateCamp Facilitator"};
           $.each(row,function(colIdx){
             var col=row[colIdx];
