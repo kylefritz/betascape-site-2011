@@ -30,6 +30,21 @@ $default-box-shadow-v-offset: 4px;
 $default-box-shadow-blur: 4px;
 
 
+.ie6,.ie7,.ie8{
+  #container{
+    section.whos-there{
+      ul{
+        li{
+          /*ie doesn't support inline-block*/
+          display:inline;
+          padding: 5px 10px;
+          margin-right: 5px;
+          }
+      }
+    }
+  }
+}
+
 @include blueprint-typography;
 @mixin section-block($top-color:$beta_orange, $bottom-color:$beta_blue){
   &{

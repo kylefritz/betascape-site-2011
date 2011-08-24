@@ -9,7 +9,9 @@ betascape={
         var rows=_.groupBy(data.feed.entry,function(e){return e.title.$t.match(/[A-Za-z]+(\d+)/)[1];})
         var presenters=_.map(rows,function(row){
           var presenter={};
-          var lectureTypeLookup={i:"Interactive Lounge",l:"Lectures",w:"Workshops"};
+          var lectureTypeLookup={i:"Interactive Lounge",l:"Lectures",
+                                 w:"Workshops",c:"Conversations"
+                                 ccf:"CreateCamp Facilitator"};
           $.each(row,function(colIdx){
             var col=row[colIdx];
             var colLetter=col.title.$t.match(/([A-Za-z]+)\d+/)[1].toLowerCase();
