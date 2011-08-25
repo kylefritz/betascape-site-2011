@@ -73,6 +73,36 @@ $default-box-shadow-blur: 4px;
     }
   }
 }
+
+@mixin note-corner($bgcolor){
+  &{
+      position:relative;
+      background:$bgcolor;
+      //padding:1em 1.5em;
+      //margin:2em auto;
+      overflow:hidden;
+  }
+  &:before {
+      $fold_color:darken(opacify($bgcolor,1),30%);
+      content:"";
+      position:absolute;
+      top:0;
+      right:0;
+      border-width:0 16px 16px 0; /* This trick side-steps a webkit bug */
+      border-style:solid;
+      border-color:#fff #fff $fold_color $fold_color; /* A bit more verbose to work with .rounded too */
+      background:$fold_color; /* For when also applying a border-radius */
+      display:block; width:0; /* Only for Firefox 3.0 damage limitation */
+      /* Optional: shadow */
+      -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+         -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+              box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  }
+}
+
+
+
+
 body{
 font-family: 'Numans', sans-serif;
 }
@@ -191,7 +221,8 @@ section{
     header{
       padding: 2*$gutter_width;
       margin-bottom: $gutter_width;
-      background:transparentize($beta_green,.2);
+      @include note-corner(transparentize($beta_green,.2));
+      //@include note-corner($beta_green);
       @include single-box-shadow();
       a{
         text-decoration:none;
