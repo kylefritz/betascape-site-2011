@@ -186,7 +186,7 @@ section.site-links{
   & > header{
     margin-top:4*$gutter_width;
     z-index:9;
-    
+
     .logo{
       margin-bottom:$gutter_width*8;
       h1{display:none; /*use image instead of text*/}
@@ -221,8 +221,8 @@ section{
     header{
       padding: 2*$gutter_width;
       margin-bottom: $gutter_width;
-      @include note-corner(transparentize($beta_green,.2));
-      //@include note-corner($beta_green);
+      //@include note-corner(transparentize($beta_green,.2));
+      background:transparentize($beta_green,.2);
       @include single-box-shadow();
       a{
         text-decoration:none;
@@ -317,6 +317,17 @@ section{
     }
     .sponsors{
       @include column(8);
+      ul.logo{
+        margin:0;
+        padding-left:10px;
+        li{
+          list-style:none;
+          margin:10px 0;
+        }
+      }
+      ul.nologo{
+        li{}
+      }
     }
     .partners{
       @include column(8);
