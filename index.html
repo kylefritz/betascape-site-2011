@@ -20,6 +20,24 @@ overview:
   - day: Sunday
     what: CreateCamp is basically a mini-hackathon, with the intent to get people experimenting and collaborating after spending the day before learning and meeting people
 
+sponsors:
+  logo:
+    - name: Mind Grub
+      site: http://www.mindgrub.com
+      logo: mindgrublogo.png
+    - name: Zynga
+      site: http://www.zynga.com
+      logo: zyngalogo.png
+  nologo:
+    - name: Figure 53
+      site: http://www.figure53.com
+    - name: Evolve Communications
+      site: http://www.simplyevolve.com
+    - name: MP3 Car
+      site: http://www.mp3car.com
+
+
+
 supporters:
   - UMBC
   - Hopkins Digital Media Lab
@@ -112,13 +130,18 @@ $('.attendees').eventbrite_attendees({
     <a href="http://rwdfoundation.org/" target="_blank"><img src="/img/sponsorship/rwdlogo.png" title="The Robert W. Deutsch Foundation (Premier Sponsor)" /></a>
     <h5>Thanks to our Premier Sponsor The Robert W. Deutsch Foundation</h5>
     <ul class="logo">
-      <li><a href="http://www.mindgrub.com/" target="_blank"><img src="/img/sponsorship/mindgrublogo.png" title="The Robert W. Deutsch Foundation (Premier Sponsor)" /></a></li>
-      <li><a href="http://www.zynga.com/" target="_blank"><img src="/img/sponsorship/zyngalogo.png" title="The Robert W. Deutsch Foundation (Premier Sponsor)" /></a></li>
-      <li><a href="http://www.figure53.com/" target="_blank"><img src="/img/sponsorship/f53logo.png" title="The Robert W. Deutsch Foundation (Premier Sponsor)" /></a></li>
+      {%for sponsor in page.sponsors.logo  %}
+      <li>
+        <a href="{{sponsor.site}}" target="_blank">
+          <img src="/img/sponsorship/{{sponsor.logo}}" title="{{sponsor.name}}" />
+        </a>
+      </li>
+      {% endfor %}
     </ul>
     <ul class="nologo">
-      <li><a href="http://www.simplyevolve.com/" target="_blank">Evolve Communications</a></li>
-      <li><a href="http://www.mp3car.com/" target="_blank">MP3 Car</a></li>
+      {%for sponsor in page.sponsors.nologo  %}
+        <li><a href="{{sponsor.site}}" target="_blank">{{sponsor.name}}</a></li>
+      {% endfor %}
     </ul>
   </section>
 
