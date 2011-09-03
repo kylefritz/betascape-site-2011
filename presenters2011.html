@@ -11,6 +11,10 @@ $(function(){
       var listTmpl=_.template($('#people-template').html());
       var html=listTmpl({byPresentType : byPresentType});
       $('.presenters2011 .presenters').append(html);
+	  var anchorTag = document.location.toString().split("#");
+	  if (anchorTag.length > 1) {
+  		  $(window).scrollTo($('a[name=' + anchorTag[1] + ']'), 2000);
+	  }
   });
 });
 
@@ -19,23 +23,22 @@ $(function(){
   <% for(var presentType in byPresentType){ %>
     <% var people=byPresentType[presentType]; %>
     <li>
-    <h3><%= presentType %></h3>
+    <h3 class="<%= presentType.split(' ').join('').toLowerCase() %>"><%= presentType %></h3>
     <ul>
     <% _.each(people, function(person) { %>
       <li class='presenter'>
         <h4>
-          <a target="_blank" href='<%= person.website %>'><%= person.name %></a>
+          <a target="_blank" href='<%= person.website %>' name="<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>" ><%= person.name %></a>
           <% if(person.twitter){ %>
             <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
           <% } %>
         </h4>
         <p class='bio'><%= person.bio %></p>
-        <p class='atbetascape'><%= person.atBetascape %></p>
       </li>
     <% }); %>
     </ul>
     </li>
-  <% } %>
+  <% } %> 
 </script>
 <section class="presenters2011">
   <header><h2>Presenters 2011</h2></header>

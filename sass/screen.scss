@@ -368,6 +368,118 @@ section{
       }
   }
   }
+  
+  .exhibits2011 h2,
+  .exhibitSection h3 {
+    padding: .2em .5em;
+    clear: both;
+    text-shadow: none;
+    color: #FFF;
+  }
+  
+  .exhibits2011 div {
+    padding: 1*$gutter_width;
+    margin-left: 40px;
+    @include column(23,true);
+    ul{
+    	list-style: disc;  
+	}
+  }
+  
+  div.saturday_am {
+  	ul p{margin: 0;}
+  }
+  
+  h2.friday{
+	background:transparentize($beta_red,.2);
+  }
+  
+  h2.saturday_am{
+  	background:transparentize($beta_blue,.2);
+  }
+  
+  h2.saturday_pm{
+	background:transparentize($beta_orange,.2);
+  }
+  
+  h2.sunday{
+	background:transparentize($beta_drkgreen,.2);
+  }
+  
+  h2.full_schedule{
+  	background:transparentize($beta_blue,.2);
+  }
+  div.full_schedule{
+  	padding: 0;
+    margin-left: 0;
+    @include column(24,true);
+    ul{
+    	margin: 0;
+    	padding: 0;
+		list-style: none;
+		li.exhibitSection {
+		    width: 460px;
+		    float: left;
+		    display: inline;
+		    margin-right: 30px;
+		}
+		li.lectures,
+		li.conversations,
+		li.createcampfacilitator {
+			margin-right: 0;
+		}
+			
+	  	li.workshops h3{
+			background:transparentize($beta_drkgreen,.2);
+  	    }
+		li.conversations h3{
+			background:transparentize($beta_orange,.2);
+		}
+		li.createcampfacilitator h3{
+			background:transparentize($beta_blue,.2);
+		}
+		li.lectures h3,
+		li.interactivelounge h3{
+			background:transparentize($beta_red,.2);
+		}
+		h4 {margin: 0;}
+	}
+  }
+
+  section.presenters2011{
+
+	h3 {
+		padding: .2em .5em;
+		clear: both;
+		text-shadow: none;
+		color: #FFF;
+		background:transparentize($beta_red,.2);
+	}
+  	h3.workshops{
+		background:transparentize($beta_drkgreen,.2);
+	}
+	h3.conversations{
+		background:transparentize($beta_green,.2);
+	}
+	h3.createcampfacilitator{
+		background:transparentize($beta_blue,.2);
+	}
+	h3.lectures,
+	h3.interactivelounge{
+		background:transparentize($beta_red,.2);
+	}
+    ul{
+		list-style: none;
+		padding: 0;
+		h4 {margin: 0;}
+    	ul li {
+			margin-left: 40px;
+			@include column(23,true);
+    	}
+	}
+
+  }
+  
   .credits{
       @include column(24,true);
       margin:8*$gutter_width 0 3*$gutter_width;
