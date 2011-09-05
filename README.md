@@ -30,19 +30,15 @@ terminal 1:
 
 `$ gem install bundler && cd betascape && bundle install`
 
-terminal 2 (have compass watch and rebuild stylesheets):
+terminal 2 (compass rebuild stylesheets while jekyll rebuild and serve
+site):
 
-`$ cd betascape && compass watch .`
-
-terminal 3 (have jekyll watch and rebuild site):
-
-`$ cd betascape && jekyll`
+`$ foreman start`
 
 try site on localhost:4000
 
 
 ##TODO:
 
- * put the little corners in
  * do the mobile/media-query version
  * sync little home/about select thing in nav
