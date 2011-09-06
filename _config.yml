@@ -1,4 +1,4 @@
 ---
-exclude: [config.rb, sass, README.md, Gemfile, Gemfile.lock, design]
+exclude: [config.rb, _sass, README.md, Gemfile, Gemfile.lock, _design, Procfile]
 auto: true
 ---
