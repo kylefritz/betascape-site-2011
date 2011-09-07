@@ -36,6 +36,10 @@ betascape={
                 presenter.twitter=content;
               }else if(colLetter=="g"){
                 presenter.exhibitTitle=content;
+              }else if(colLetter=="h"){
+                presenter.secondPresenter=content;
+              }else if(colLetter=="i"){
+                presenter.secondPresenterTwitter=content;
               }else{
                 if(typeof(console)!="undefined"){
                   console.log('whats that?',colLetter,content);

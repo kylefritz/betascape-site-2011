@@ -32,6 +32,13 @@ $(function(){
 	          <% if(person.twitter){ %>
 	            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
 	          <% } %>
+				
+			  <% if(person.secondPresenter){ %>
+		          & <a href='presenters2011.html#<%= person.secondPresenter.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.secondPresenter %></a>
+		          <% if(person.twitter){ %>
+		            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.secondPresenterTwitter %>'><%= person.secondPresenterTwitter %></a>
+		          <% } %>
+		      <% } %>
 	        </p>
 	        <p class='description'><%= person.atBetascape %></p>
 	      </li>
