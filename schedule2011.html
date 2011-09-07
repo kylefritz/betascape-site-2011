@@ -22,18 +22,20 @@ $(function(){
     <h3><%= presentType %></h3>
     <ul>
     <% _.each(people, function(person) { %>
-      <li class='exhibit'>
-        <h4>
-          <%= person.exhibitTitle %>
-        </h4>
-        <p class="presenter">
-          <a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a>
-          <% if(person.twitter){ %>
-            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
-          <% } %>
-        </p>
-        <p class='description'><%= person.atBetascape %></p>
-      </li>
+		<% if(person.exhibitTitle || presentType == 'CreateCamp Facilitator'){ %>      
+	      <li class='exhibit'>
+	        <h4>
+	          <%= person.exhibitTitle %>
+	        </h4>
+	        <p class="presenter">
+	          <a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a>
+	          <% if(person.twitter){ %>
+	            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+	          <% } %>
+	        </p>
+	        <p class='description'><%= person.atBetascape %></p>
+	      </li>
+	     <% } %>
     <% }); %>
     </ul>
     </li>
