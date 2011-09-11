@@ -26,15 +26,17 @@ $(function(){
     <h3 class="<%= presentType.split(' ').join('').toLowerCase() %>"><%= presentType %></h3>
     <ul>
     <% _.each(people, function(person) { %>
-      <li class='presenter'>
-        <h4>
-          <a target="_blank" href='<%= person.website %>' name="<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>" ><%= person.name %></a>
-          <% if(person.twitter){ %>
-            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
-          <% } %>
-        </h4>
-        <p class='bio'><%= person.bio %></p>
-      </li>
+		<% if(person.bio) { %>
+	      <li class='presenter'>
+	        <h4>
+	          <a target="_blank" href='<%= person.website %>' name="<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>" ><%= person.name %></a>
+	          <% if(person.twitter){ %>
+	            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+	          <% } %>
+	        </h4>
+	        <p class='bio'><%= person.bio %></p>
+	      </li>
+		<% } %>
     <% }); %>
     </ul>
     </li>
