@@ -1,0 +1,32 @@
+---
+layout: default
+title: betascape final schedule 2011
+
+overview:
+  - day: Friday&nbsp;Night
+    what: <a href="http://outletbaltimore.tumblr.com/" target="_blank">Outlet Baltimore</a> Relaunch Party, 6pm @ <a href="http://thewindupspace.com/" target="_blank">Windup Space</a>
+  - day: Friday&nbsp;Night
+    what: <a href="http://www.literaturepartybaltimore.info/" target="_blank">Literature Party</a> by Publishing Genius, 8pm @ <a href="http://themetrogallery.net/" target="_blank">Metro Gallery</a>
+  - day: Saturday&nbsp;Day
+    what: Lectures, conversations and workshops.
+  - day: Saturday&nbsp;Night
+    what: <a href="/blockparty.html">Station North Block Party</a> from 6pm featuring bands and Baltimore's Food Trucks.
+  - day: Sunday
+    what: CreateCamp is a mini-hackathon, with to get people experimenting and collaborating after spending the day before learning
+
+---
+
+
+  <section class="overview">
+    <header>Betascape Overview</header>
+    <table>
+      {% for item in page.overview %}
+      <tr class="{% cycle 'odd', 'even' %} ">
+        <td>{{item.day}}</td><td>{{item.what}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <footer>
+    <a href="/schedule2011.html">Full Schedule → </a>
+    </footer>
+  </section>
