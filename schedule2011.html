@@ -11,6 +11,12 @@ $(function(){
       var listTmpl=_.template($('#schedule-template').html());
       var html=listTmpl({byPresentType : byPresentType});
       $('.exhibits2011 .exhibits').append(html);
+      
+      var anchorTag = document.location.toString().split("#");
+	  if (anchorTag.length > 1) {
+  		  $(window).scrollTo($('h4[name=' + anchorTag[1] + ']'), 2000);
+	  }
+
   });
 });
 
@@ -24,7 +30,7 @@ $(function(){
     <% _.each(people, function(person) { %>
 		<% if(person.exhibitTitle || presentType == 'CreateCamp Facilitator'){ %>      
 	      <li class='exhibit'>
-	        <h4>
+	        <h4 name="<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>">
 	          <%= person.exhibitTitle %>
 	        </h4>
 	        <p class="presenter">
