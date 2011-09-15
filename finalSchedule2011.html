@@ -2,31 +2,91 @@
 layout: default
 title: betascape final schedule 2011
 
-overview:
-  - day: Friday&nbsp;Night
-    what: <a href="http://outletbaltimore.tumblr.com/" target="_blank">Outlet Baltimore</a> Relaunch Party, 6pm @ <a href="http://thewindupspace.com/" target="_blank">Windup Space</a>
-  - day: Friday&nbsp;Night
-    what: <a href="http://www.literaturepartybaltimore.info/" target="_blank">Literature Party</a> by Publishing Genius, 8pm @ <a href="http://themetrogallery.net/" target="_blank">Metro Gallery</a>
-  - day: Saturday&nbsp;Day
-    what: Lectures, conversations and workshops.
-  - day: Saturday&nbsp;Night
-    what: <a href="/blockparty.html">Station North Block Party</a> from 6pm featuring bands and Baltimore's Food Trucks.
-  - day: Sunday
-    what: CreateCamp is a mini-hackathon, with to get people experimenting and collaborating after spending the day before learning
-
+schedule:
+  - startTime: 10am
+    endTime: 11am
+    lectureTitle: Using Gadgets to Change Our Stories
+    lecturePerson: Lee Boot
+    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
+    convoPerson: Mixtum
+    w1: Exitrip Hacking the iTrip
+    w1Person: Ed Bear and Lea Bertucci
+    w2: Rehearsal as the Backbone of the Creative Process
+    w2Person: J Buck Jabaily  aka Buck Jabaily
+    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
+    w3Person: CMKT4
+  - startTime: 10am
+    endTime: 11am
+    lectureTitle: Using Gadgets to Change Our Stories
+    lecturePerson: Lee Boot
+    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
+    convoPerson: Mixtum
+    w1: Exitrip Hacking the iTrip
+    w1Person: Ed Bear and Lea Bertucci
+    w2: Rehearsal as the Backbone of the Creative Process
+    w2Person: J Buck Jabaily  aka Buck Jabaily
+    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
+    w3Person: CMKT4
+  - startTime: 10am
+    endTime: 11am
+    lectureTitle: Using Gadgets to Change Our Stories
+    lecturePerson: Lee Boot
+    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
+    convoPerson: Mixtum
+    w1: Exitrip Hacking the iTrip
+    w1Person: Ed Bear and Lea Bertucci
+    w2: Rehearsal as the Backbone of the Creative Process
+    w2Person: J Buck Jabaily  aka Buck Jabaily
+    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
+    w3Person: CMKT4   
 ---
+<script>
+$(function(){
+  betascape.changeCurrent('schedule')
 
+  betascape.getPresenters(function(presenters){
+      var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
+      var listTmpl=_.template($('#final-schedule-template').html());
+      var html=listTmpl({byPresentType : byPresentType});
+      $('.finalSchedule').append(html);
+  });
+});
 
-  <section class="overview">
-    <header>Betascape Overview</header>
+</script>
+<script type="template" id="final-schedule-template">
+
+  <% for(var presentType in byPresentType){ %>
+   	<% var people=byPresentType[presentType]; %>
+    
+    <header><%= presentType %></header>
     <table>
-      {% for item in page.overview %}
-      <tr class="{% cycle 'odd', 'even' %} ">
-        <td>{{item.day}}</td><td>{{item.what}}</td>
-      </tr>
-      {% endfor %}
+		<tr>
+			<td width="4%" class="start"><strong>Starts</strong></td>
+			<td width="4%" class="end"><strong>Ends</strong></td>
+			<td width="46%" class="lectures">
+				<strong><%= presentType %></strong>
+			</td>
+		</tr>
+      
+
+		<% _.each(people, function(person) { %>
+	      <tr>
+	        <td width="4%" class="start"><%= person.startTime %></td>
+	        <td width="6%" class="end"><%= person.endTime %></td>
+	        <td class="lectures">
+	        	<a href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+	        	<span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
+	        	<% if(person.twitter){ %>
+			            <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+				<% } %>
+	        </td>
+		  </tr>
+		<% }); %>
     </table>
     <footer>
     <a href="/schedule2011.html">Full Schedule → </a>
     </footer>
+  <% } %> 
+</script>
+  <section class="finalSchedule">
   </section>

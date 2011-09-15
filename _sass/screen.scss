@@ -513,3 +513,24 @@ section{
   }
 
 }
+
+section.finalSchedule{
+	margin-top:8*$gutter_width;
+	background-color: #FFF;
+	@include column(24,true);
+	@include section-block();
+	table {
+	    margin-bottom:0;
+	    td {
+	    	padding: 4px;
+	    	span {
+	    		font-style: italic;
+	    		color: #333;
+	    	}
+	    }
+	    td.odd {
+	    	background: none repeat scroll 0 0 #E5ECF9;
+	    }
+	  }
+}
+
