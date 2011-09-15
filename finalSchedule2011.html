@@ -1,44 +1,7 @@
 ---
 layout: default
 title: betascape final schedule 2011
-
-schedule:
-  - startTime: 10am
-    endTime: 11am
-    lectureTitle: Using Gadgets to Change Our Stories
-    lecturePerson: Lee Boot
-    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
-    convoPerson: Mixtum
-    w1: Exitrip Hacking the iTrip
-    w1Person: Ed Bear and Lea Bertucci
-    w2: Rehearsal as the Backbone of the Creative Process
-    w2Person: J Buck Jabaily  aka Buck Jabaily
-    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
-    w3Person: CMKT4
-  - startTime: 10am
-    endTime: 11am
-    lectureTitle: Using Gadgets to Change Our Stories
-    lecturePerson: Lee Boot
-    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
-    convoPerson: Mixtum
-    w1: Exitrip Hacking the iTrip
-    w1Person: Ed Bear and Lea Bertucci
-    w2: Rehearsal as the Backbone of the Creative Process
-    w2Person: J Buck Jabaily  aka Buck Jabaily
-    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
-    w3Person: CMKT4
-  - startTime: 10am
-    endTime: 11am
-    lectureTitle: Using Gadgets to Change Our Stories
-    lecturePerson: Lee Boot
-    convoTitle: Mixtum An Instrument for Randomly Selecting a Trio of Symbols to Help Generate Unexpected Ideas
-    convoPerson: Mixtum
-    w1: Exitrip Hacking the iTrip
-    w1Person: Ed Bear and Lea Bertucci
-    w2: Rehearsal as the Backbone of the Creative Process
-    w2Person: J Buck Jabaily  aka Buck Jabaily
-    w3: CMKT4 Build Differently  Creme DeMentia Bottlecap Contact Mircophone
-    w3Person: CMKT4   
+ 
 ---
 <script>
 $(function(){
@@ -57,6 +20,7 @@ $(function(){
 
   <% for(var presentType in byPresentType){ %>
    	<% var people=byPresentType[presentType]; %>
+   	<% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
     
     <header><%= presentType %></header>
     <table>
