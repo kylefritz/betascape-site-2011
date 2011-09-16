@@ -382,101 +382,101 @@ section{
     margin-left: 40px;
     @include column(23,true);
     ul{
-    	list-style: disc;  
-	}
+      list-style: disc;  
+  }
   }
   
   div.saturday_am {
-  	ul p{margin: 0;}
+    ul p{margin: 0;}
   }
   
   h2.friday{
-	background:transparentize($beta_red,.2);
+  background:transparentize($beta_red,.2);
   }
   
   h2.saturday_am{
-  	background:transparentize($beta_blue,.2);
+    background:transparentize($beta_blue,.2);
   }
   
   h2.saturday_pm{
-	background:transparentize($beta_orange,.2);
+  background:transparentize($beta_orange,.2);
   }
   
   h2.sunday{
-	background:transparentize($beta_drkgreen,.2);
+  background:transparentize($beta_drkgreen,.2);
   }
   
   h2.full_schedule{
-  	background:transparentize($beta_blue,.2);
+    background:transparentize($beta_blue,.2);
   }
   div.full_schedule{
-  	padding: 0;
+    padding: 0;
     margin-left: 0;
     @include column(24,true);
     ul{
-    	margin: 0;
-    	padding: 0;
-		list-style: none;
-		li.exhibitSection {
-		    width: 460px;
-		    float: left;
-		    display: inline;
-		    margin-right: 30px;
-		}
-		li.lectures,
-		li.interactivelounge,
-		li.createcampfacilitator {
-			margin-right: 0;
-		}
-			
-	  	li.workshops h3{
-			background:transparentize($beta_drkgreen,.2);
-  	    }
-		li.conversations h3{
-			background:transparentize($beta_orange,.2);
-		}
-		li.createcampfacilitator h3{
-			background:transparentize($beta_blue,.2);
-		}
-		li.lectures h3,
-		li.interactivelounge h3{
-			background:transparentize($beta_red,.2);
-		}
-		h4 {margin: 0;}
-	}
+      margin: 0;
+      padding: 0;
+    list-style: none;
+    li.exhibitSection {
+        width: 460px;
+        float: left;
+        display: inline;
+        margin-right: 30px;
+    }
+    li.lectures,
+    li.interactivelounge,
+    li.createcampfacilitator {
+      margin-right: 0;
+    }
+      
+      li.workshops h3{
+      background:transparentize($beta_drkgreen,.2);
+        }
+    li.conversations h3{
+      background:transparentize($beta_orange,.2);
+    }
+    li.createcampfacilitator h3{
+      background:transparentize($beta_blue,.2);
+    }
+    li.lectures h3,
+    li.interactivelounge h3{
+      background:transparentize($beta_red,.2);
+    }
+    h4 {margin: 0;}
+  }
   }
 
   section.presenters2011{
 
-	h3 {
-		padding: .2em .5em;
-		clear: both;
-		text-shadow: none;
-		color: #FFF;
-		background:transparentize($beta_red,.2);
-	}
-  	h3.workshops{
-		background:transparentize($beta_drkgreen,.2);
-	}
-	h3.conversations{
-		background:transparentize($beta_green,.2);
-	}
-	h3.createcampfacilitator{
-		background:transparentize($beta_blue,.2);
-	}
-	h3.lectures,
-	h3.interactivelounge{
-		background:transparentize($beta_red,.2);
-	}
+  h3 {
+    padding: .2em .5em;
+    clear: both;
+    text-shadow: none;
+    color: #FFF;
+    background:transparentize($beta_red,.2);
+  }
+    h3.workshops{
+    background:transparentize($beta_drkgreen,.2);
+  }
+  h3.conversations{
+    background:transparentize($beta_green,.2);
+  }
+  h3.createcampfacilitator{
+    background:transparentize($beta_blue,.2);
+  }
+  h3.lectures,
+  h3.interactivelounge{
+    background:transparentize($beta_red,.2);
+  }
     ul{
-		list-style: none;
-		padding: 0;
-		h4 {margin: 0;}
-    	ul li {
-			margin-left: 40px;
-			@include column(23,true);
-    	}
-	}
+    list-style: none;
+    padding: 0;
+    h4 {margin: 0;}
+      ul li {
+      margin-left: 40px;
+      @include column(23,true);
+      }
+  }
 
   }
   
@@ -515,22 +515,27 @@ section{
 }
 
 section.finalSchedule{
-	margin-top:8*$gutter_width;
-	background-color: #FFF;
-	@include column(24,true);
-	@include section-block();
-	table {
-	    margin-bottom:0;
-	    td {
-	    	padding: 4px;
-	    	span {
-	    		font-style: italic;
-	    		color: #333;
-	    	}
-	    }
-	    td.odd {
-	    	background: none repeat scroll 0 0 #E5ECF9;
-	    }
-	  }
+  margin-top:8*$gutter_width;
+  background-color: #FFF;
+  @include column(24,true);
+  @include section-block();
+  table {
+      margin-bottom:0;
+      td {
+        padding: 4px;
+        span {
+          font-style: italic;
+          color: #333;
+        }
+      }
+      td.odd {
+        background: none repeat scroll 0 0 #E5ECF9;
+      }
+    }
+  header{margin:20px 0 10px 0;}
+  header.Theatre{background:$beta_red;}
+  header.Node{background:$beta_blue;}
+  header.Lectures{background:$beta_drkgreen;}
+  header.Conversations{background:$beta_orange;}
 }
 
