@@ -369,6 +369,9 @@ section{
   }
   }
   
+  .exhibits2011 p,.exhibits2011 h3{
+    padding-left: 6*$gutter_width;
+  }
   .exhibits2011 h2,
   .exhibitSection h3 {
     padding: .2em .5em;
@@ -376,16 +379,7 @@ section{
     text-shadow: none;
     color: #FFF;
   }
-  
-  .exhibits2011 div {
-    padding: 1*$gutter_width;
-    margin-left: 40px;
-    @include column(23,true);
-    ul{
-      list-style: disc;  
-  }
-  }
-  
+
   div.saturday_am {
     ul p{margin: 0;}
   }
@@ -514,11 +508,18 @@ section{
 
 }
 
-section.finalSchedule{
-  margin-top:8*$gutter_width;
+.finalSchedule{
+  margin-top:2*$gutter_width;
+  margin-bottom:4*$gutter_width;
   background-color: #FFF;
-  @include column(24,true);
-  @include section-block();
+  margin-left:6*$gutter_width;
+  header{
+      padding: $gutter_width $gutter_width * 1.5 $gutter_width * .8;
+      font-size:120%;
+      color:white;
+      font-weight:bold;
+      margin-top:$gutter_width;
+  }
   table {
       margin-bottom:0;
       td {
@@ -532,12 +533,11 @@ section.finalSchedule{
         background: none repeat scroll 0 0 #E5ECF9;
       }
     }
-  .exhibit-title{
-  }
   header{margin:20px 0 10px 0;}
   header.Theatre{background:$beta_red;}
   header.Node{background:$beta_blue;}
   header.Lectures{background:$beta_drkgreen;}
   header.Conversations{background:$beta_orange;}
+  header.Haus{background:$beta_orange;}
 }
 

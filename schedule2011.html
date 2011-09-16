@@ -7,111 +7,97 @@ $(function(){
   betascape.changeCurrent('schedule')
 
   betascape.getPresenters(function(presenters){
-      var byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
-      var listTmpl=_.template($('#schedule-template').html());
+      byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
+      delete byPresentType["CreateCamp Facilitator"];
+      delete byPresentType["Interactive Lounge"];
+      var workshops = byPresentType["Workshops"];
+      var splitWorkshops=_.groupBy(workshops,function(p){return parseInt(p.trackNumber[0]);});
+      byPresentType["Workshops @ Baltimore Node"]=splitWorkshops[1];
+      byPresentType["Workshops @ Load of Fun Theatre"]=splitWorkshops[2];
+      byPresentType["Workshops @ Hour Haus"]=splitWorkshops[3];
+      delete byPresentType["Workshops"];
+      var listTmpl=_.template($('#final-schedule-template').html());
       var html=listTmpl({byPresentType : byPresentType});
-      $('.exhibits2011 .exhibits').append(html);
-      var anchorTag = document.location.toString().split("#");
-    if (anchorTag.length > 1) {
-        $(window).scrollTo($('h4[name=' + anchorTag[1] + ']'), 2000);
-    }
-
+      $('.finalSchedule').append(html);
+      $('table.events .more').hide();
+      $('table.events .exhibit-title').click(function(evt){
+        var found = $(this).parent().find('.more').slideToggle();
+        evt.preventDefault();
+      });
   });
-
 });
 
 </script>
-<script type="template" id="schedule-template">
-  <% for(var presentType in byPresentType){ %>
-    <% var people=byPresentType[presentType]; %>
-    <li class="exhibitSection <%= presentType.split(' ').join('').toLowerCase() %>">
-    <h3><%= presentType %></h3>
-    <ul class="events">
-    <% _.each(people, function(person) { %>
-    <% if(person.exhibitTitle || presentType == 'CreateCamp Facilitator'){ %>      
-        <li class='exhibit'>
-          <h4 name="<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>">
-            <%= person.exhibitTitle %>
-          </h4>
-          <p class="presenter">
-            <a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a>
-            <% if(person.twitter){ %>
-              <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
-            <% } %>
+<script type="template" id="final-schedule-template">
 
-        <% if(person.secondPresenter){ %>
-              & <a href='presenters2011.html#<%= person.secondPresenter.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.secondPresenter %></a>
+  <% for(var presentType in byPresentType){ %>
+   <% var people=byPresentType[presentType]; %>
+   <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
+
+    <header class="<%=presentType %>"><%= presentType %></header>
+    <table class="events striped">
+      <tr>
+        <th width="4%">Starts</th>
+        <th width="4%" >Ends</th>
+        <th width="46%" class="lectures">
+          <%= presentType %>
+        </th>
+        <th>Hosted By</th>
+      </tr>
+      <% _.each(people, function(person) { %>
+          <tr>
+            <td width="4%" ><%= person.startTime %></td>
+            <td width="4%" ><%= person.endTime %></td>
+            <td width="46%" class="lectures">
+              <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+              <div class="more">
+                <%=person.atBetascape %>
+              </div>
+            </td>
+            <td>
+              <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
               <% if(person.twitter){ %>
-                <a target="_blank" class="twitter" href='http://twitter.com/<%= person.secondPresenterTwitter %>'><%= person.secondPresenterTwitter %></a>
+                    <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
               <% } %>
-          <% } %>
-          </p>
-          <p class='description'><%= person.atBetascape %></p>
-        </li>
-       <% } %>
-    <% }); %>
-    </ul>
-    </li>
-  <% } %>
+            </td>
+        </tr>
+      <% }); %>
+
+    </table>
+  <% } %> 
 </script>
 <section class="exhibits2011">
 
   <header><h1>Betascape 2011 Schedule</h1></header>
-  
+
   <h2 class="friday">Friday: Kickoff Events</h2>
   <div class="friday">
     <header><h3><a href="http://outletbaltimore.tumblr.com/">Outlet Baltimore</a></h3></header>
     <p>Outlet is dedicated time for bringing interesting people together offline to cut through the noise and enjoy good company. We believe that doing this has great, if perhaps unmeasurable, value.</p>
-    
+
     <p>Accomplish that much first. Then, if the fit is right, we can talk a little business.</p>
     <header><h3><a href="http://www.literaturepartybaltimore.info/">Literature Party</a></h3></header>
     <p>A night of literature and party benefiting CityLit with BLAKE BUTLER and CACONRAD and DOTTIE LASKY and MIKE YOUNG and DJ John Eaton to spin off a dance party</p>
   </div>
-  
+
   <h2 class="saturday_am">Saturday 9AM - 5PM: Lectures, Workshops &amp; Conversations</h2>
-  <div class="saturday_am">
-    <p>This day of learning is divided into 3 types of activities, listed below. Lectures and Workshops aim to impart skills that can be used to innovate and Conversations are aimed at providing opportunities to explore discussion topics with a group.</p>
-    <ul> 
-    <li> 
-      <p>Badge and Bag Pick Up: 8AM - 5PM</p> 
-    </li> 
-    <li> 
-      <p>Breakfast: 9AM - 10AM</p> 
-    </li>  
-    <li> 
-      <p>Learning Series: 10AM - 5PM</p> 
-      <ul> 
-        <li>Lectures: 8, 40-minute Lectures</li>     
-        <li>Workshops: 12, 75-minute workshops, 4 held in the Baltimore Node, 4 held in the Load of Fun theatre and 4 held in Hour Haus studio space.</li> 
-        <li>Conversations: 8 40-minute conversations that will range from discussion to panels</li> 
-      </ul> 
-    </li>  
-    <li> 
-      <p>Lunch: 1PM - 2PM</p> 
-    </li> 
-    </ul>
+ <div class="finalSchedule">
   </div>
-  
   <h2 class="saturday_pm">Saturday Night</h2>
   <div class="saturday_pm">
     <header><h3><a href="/blockparty.html">Station North Block Party</a></h3></header>
     <p>After your day of learning &amp; listening, come relax or even rock out at the Station North Music Festival. This event is free and open to the public.</p> 
-    
+
     <header><h3><a href="http://bytenyte.com/?p=291">Byte Nyte</a></h3></header>
     <p>See live 8-bit music and visuals at the Hour Haus for Betascape 2011.  This is a FREE SHOW. All ages show. Open Mic at 6 PM. Music by Temp Sound Solutions (BAL), Inverse Phase (VA) , Forever The Win (VA), Companion (MD) and DJ Cats (DC).  Visuals by Pixelseed (BAL). There will be a special musical guest from Betascape.</p>
-    
+
     <p>Open Mic is first come first serve!</p>
 
     <p>This is a FREE SHOW at the Hour Haus in Baltimore, MD. Show time: 6 PM - 11 PM All ages show. BYOB. Open Mic at 6 PM.</p>
   </div>
-  
+
   <h2 class="sunday">Sunday 9AM - 5PM: CreateCamp</h2>
   <div class="sunday">
     <p>Betascape attendees will be given space and in some cases resources, to come together to work on mini projects where they can explore new ideas and concepts that emerge from the series of Betascape events. Some CreateCamp projects will be preplanned and many will be the spontaneous result of inspiration and new ideas. From 4-5PM, CreateCamp Projects will be presented, and awards will be given for the most novel and innovative projects. Note: We will be making a list of facilitators public shortly and we encourage you to reach out to them if you want to collaborate with them on a project</p> 
-  </div>
-  
-  <h2 class="full_schedule">Saturday Exhibits</h2>
-  <div class="full_schedule">
-    <ul class="exhibits"></ul>
   </div>
 </section>
