@@ -46,18 +46,14 @@ betascape={
               }else if(colLetter=="i"){
                 presenter.secondPresenterTwitter=content;
               }else if(colLetter=="j"){
-                //This is the raw track number, I've also taken the liberty to apply a start and end time to all these guys
-                //You may want to use it or not :)
                 presenter.trackNumber=content;
 
                 if (presenter.lectureType == "Workshops" && presenter.trackNumber) {
                 	presenter.startTime=eightyMinSlotStartTimeLookup [ content.slice(-1) ];
 					presenter.endTime=eightyMinSlotEndTimeLookup [ content.slice(-1) ];
-                	console.log(presenter.startTime + " " + presenter.endTime);
                 } else if (presenter.trackNumber) {
                 	presenter.startTime=fortyMinSlotStartTimeLookup [ content.slice(-1) ];
 					presenter.endTime=fortyMinSlotEndTimeLookup [ content.slice(-1) ];
-                	console.log(presenter.startTime + " " + presenter.endTime);
                 }
                 
               }else{
