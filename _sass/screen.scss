@@ -403,7 +403,7 @@ section{
   h2.full_schedule{
     background:transparentize($beta_blue,.2);
   }
-  div.full_schedule{
+  div.interactive-schedule{
     padding: 0;
     margin-left: 0;
     @include column(24,true);
@@ -411,30 +411,10 @@ section{
       margin: 0;
       padding: 0;
     list-style: none;
-    li.exhibitSection {
-        width: 460px;
-        float: left;
-        display: inline;
-        margin-right: 30px;
-    }
-    li.lectures,
-    li.interactivelounge,
-    li.createcampfacilitator {
-      margin-right: 0;
-    }
-      
-      li.workshops h3{
-      background:transparentize($beta_drkgreen,.2);
+    li {
+        p {
+        	width: 830px;
         }
-    li.conversations h3{
-      background:transparentize($beta_orange,.2);
-    }
-    li.createcampfacilitator h3{
-      background:transparentize($beta_blue,.2);
-    }
-    li.lectures h3,
-    li.interactivelounge h3{
-      background:transparentize($beta_red,.2);
     }
     h4 {margin: 0;}
   }
@@ -539,5 +519,6 @@ section{
   header.Lectures{background:$beta_drkgreen;}
   header.Conversations{background:$beta_orange;}
   header.Haus{background:$beta_orange;}
+  header.lounge{background:$beta_red;}
 }
 

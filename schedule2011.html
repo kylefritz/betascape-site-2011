@@ -8,16 +8,20 @@ $(function(){
 
   betascape.getPresenters(function(presenters){
       byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
+      
       delete byPresentType["CreateCamp Facilitator"];
-      delete byPresentType["Interactive Lounge"];
       var workshops = byPresentType["Workshops"];
+      
       var splitWorkshops=_.groupBy(workshops,function(p){return parseInt(p.trackNumber[0]);});
+      
       byPresentType["Workshops @ Baltimore Node"]=splitWorkshops[1];
       byPresentType["Workshops @ Load of Fun Theatre"]=splitWorkshops[2];
       byPresentType["Workshops @ Hour Haus"]=splitWorkshops[3];
       delete byPresentType["Workshops"];
+      
       var listTmpl=_.template($('#final-schedule-template').html());
       var html=listTmpl({byPresentType : byPresentType});
+      
       $('.finalSchedule').append(html);
       $('table.events .more').hide();
       $('table.events .exhibit-title').click(function(evt){
@@ -31,6 +35,7 @@ $(function(){
 <script type="template" id="final-schedule-template">
 
   <% for(var presentType in byPresentType){ %>
+   <% if(presentType != "Interactive Lounge") { %>
    <% var people=byPresentType[presentType]; %>
    <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
 
@@ -64,7 +69,31 @@ $(function(){
       <% }); %>
 
     </table>
+    <% } %>
   <% } %> 
+  
+  <div class="interactive-schedule">
+	<header class="lounge">Interactive Lounge</header>
+	<% var people=byPresentType["Interactive Lounge"]; %>
+     <ul class="interactive-schedule">
+     <% _.each(people, function(person) { %>
+        <% if(person.exhibitTitle){ %>      
+          <li class='exhibit'>
+            <h4>
+              <%= person.exhibitTitle %>
+            </h4>
+            <p class="presenter">
+              <a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a>
+              <% if(person.twitter){ %>
+                <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+              <% } %>
+            </p>
+            <p class='description'><%= person.atBetascape %></p>
+          </li>
+         <% } %>
+     <% }); %>
+     </ul>
+   </div>
 </script>
 <section class="exhibits2011">
 
@@ -81,8 +110,8 @@ $(function(){
   </div>
 
   <h2 class="saturday_am">Saturday 9AM - 5PM: Lectures, Workshops &amp; Conversations</h2>
- <div class="finalSchedule">
-  </div>
+	<div class="finalSchedule"></div>
+
   <h2 class="saturday_pm">Saturday Night</h2>
   <div class="saturday_pm">
     <header><h3><a href="/blockparty.html">Station North Block Party</a></h3></header>
