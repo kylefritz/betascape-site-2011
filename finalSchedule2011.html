@@ -20,6 +20,11 @@ $(function(){
       var listTmpl=_.template($('#final-schedule-template').html());
       var html=listTmpl({byPresentType : byPresentType});
       $('.finalSchedule').append(html);
+      $('table.events .more').hide();
+      $('table.events .exhibit-title').click(function(evt){
+        var found = $(this).parent().find('.more').slideToggle();
+        evt.preventDefault();
+      });
   });
 });
 
@@ -31,27 +36,30 @@ $(function(){
    <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
 
     <header class="<%=presentType %>"><%= presentType %></header>
-    <table>
+    <table class="events striped">
       <tr>
-        <th width="4%" class="start">Starts</th>
-        <th width="4%" class="end">Ends</th>
+        <th width="4%">Starts</th>
+        <th width="4%" >Ends</th>
         <th width="46%" class="lectures">
           <%= presentType %>
         </th>
+        <th>Hosted By</th>
       </tr>
       <% _.each(people, function(person) { %>
           <tr>
-            <td width="4%" class="start"><%= person.startTime %></td>
-            <td width="4%" class="end"><%= person.endTime %></td>
+            <td width="4%" ><%= person.startTime %></td>
+            <td width="4%" ><%= person.endTime %></td>
             <td class="lectures">
-              <a href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+              <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+              <div class="more">
+                <%=person.atBetascape %>
+              </div>
+            </td>
+            <td>
               <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
               <% if(person.twitter){ %>
                     <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
               <% } %>
-              <div class="more">
-                <%=person.atBetascape %>
-              </div>
             </td>
         </tr>
       <% }); %>
