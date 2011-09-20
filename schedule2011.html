@@ -8,25 +8,25 @@ $(function(){
 
   betascape.getPresenters(function(presenters){
       byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
-      
+
       var workshops = byPresentType["Workshops"];
       var splitWorkshops=_.groupBy(workshops,function(p){return parseInt(p.trackNumber[0]);});
-      
+
       byPresentType["Workshops @ Baltimore Node"]=splitWorkshops[1];
       byPresentType["Workshops @ Load of Fun Theatre"]=splitWorkshops[2];
       byPresentType["Workshops @ Hour Haus"]=splitWorkshops[3];
       delete byPresentType["Workshops"];
-      
+
       var listTmpl=_.template($('#final-schedule-template').html());
       var html=listTmpl({byPresentType : byPresentType});
-      
-      $('.finalSchedule').append(html);
-      
+
+      $('.finalSchedule').prepend(html);
+
       var listTmplate=_.template($('#ccf').html());
       var htmlCCF=listTmplate({byPresentType : byPresentType});
-      
+
       $('.ccf').append(htmlCCF);
-      
+
       $('table.events .more').hide();
       $('table.events .exhibit-title').click(function(evt){
         var found = $(this).parent().find('.more').slideToggle();
@@ -41,47 +41,46 @@ $(function(){
   <% for(var presentType in byPresentType){ %>
    <% if(!(presentType == "Interactive Lounge")) { %>
    <% if(!(presentType == "CreateCamp Facilitator")) { %>
-	   <% var people=byPresentType[presentType]; %>
-	   <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
-	
-	    <header class="<%= presentType %>"><%= presentType %></header>
-	    <table class="events striped">
-	      <tr>
-	        <th width="4%">Starts</th>
-	        <th width="4%" >Ends</th>
-	        <th width="46%" class="lectures">
-	          <%= presentType %>
-	        </th>
-	        <th>Hosted By</th>
-	      </tr>
-	      <% _.each(people, function(person) { %>
-	          <tr>
-	            <td width="4%" ><%= person.startTime %></td>
-	            <td width="4%" ><%= person.endTime %></td>
-	            <td width="46%" class="lectures">
-	              <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
-	              <div class="more">
-	                <%=person.atBetascape %>
-	              </div>
-	            </td>
-	            <td>
-	              <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
-	              <% if(person.twitter){ %>
-	                    <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
-	              <% } %>
-	            </td>
-	        </tr>
-	      <% }); %>
-	
-	    </table>
+     <% var people=byPresentType[presentType]; %>
+     <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
+  
+      <header class="<%= presentType %>"><%= presentType %></header>
+      <table class="events striped">
+        <tr>
+          <th width="4%">Starts</th>
+          <th width="4%" >Ends</th>
+          <th width="46%" class="lectures">
+            <%= presentType %>
+          </th>
+          <th>Hosted By</th>
+        </tr>
+        <% _.each(people, function(person) { %>
+            <tr>
+              <td width="4%" ><%= person.startTime %></td>
+              <td width="4%" ><%= person.endTime %></td>
+              <td width="46%" class="lectures">
+                <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+                <div class="more">
+                  <%=person.atBetascape %>
+                </div>
+              </td>
+              <td>
+                <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
+                <% if(person.twitter){ %>
+                      <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+                <% } %>
+              </td>
+          </tr>
+        <% }); %>
+  
+      </table>
     <% } %>
     <% } %>
   <% } %> 
   
-  <div class="interactive-schedule">
-	<header class="lounge">Interactive Lounge</header>
-	<% var people=byPresentType["Interactive Lounge"]; %>
-     <ul class="interactive-schedule">
+  <header class="lounge">Interactive Lounge</header>
+  <% var people=byPresentType["Interactive Lounge"]; %>
+    <ul class="interactive">
      <% _.each(people, function(person) { %>
         <% if(person.exhibitTitle){ %>      
           <li class='exhibit'>
@@ -99,14 +98,13 @@ $(function(){
          <% } %>
      <% }); %>
      </ul>
-   </div>
 </script>
 
 <script type="template" id="ccf">
   <div class="createcamp">
-	<header class="lounge">Create Camp Facilitators</header>
-	<% var people=byPresentType["CreateCamp Facilitator"]; %>
-     <ul class="interactive-schedule">
+  <header class="lounge">Create Camp Facilitators</header>
+  <% var people=byPresentType["CreateCamp Facilitator"]; %>
+    <ul>
      <% _.each(people, function(person) { %>
           <li class='exhibit'>
             <p class="presenter">
@@ -119,7 +117,7 @@ $(function(){
           </li>
      <% }); %>
      </ul>
-   </div>   
+   </div>
 </script>
 
 <section class="exhibits2011">
@@ -137,14 +135,13 @@ $(function(){
   </div>
 
   <h2 class="saturday_am">Saturday 9AM - 5PM: Lectures, Workshops &amp; Conversations</h2>
-	<div class="finalSchedule"></div>
-	
-	<div class="finalSchedule">
-  	  <header class="lounge">AFKFest 2011 Car Computer Festival & Speaker Series</header>
-		<p>Mp3Car is hosting another one-of-a-kind show September 24, in Baltimore, Maryland. Come join computer hackers, car enthusiasts, techies, and audiophiles in a day of informative talks, car computer install presentations, socializing and innovating. In the morning, enjoy a free interactive speaker series on various topics on mobile computing.</p>
-		<p>This year's AFKFest will be at Betascape 2011, an event made to showcase innovative technology through a series of exhibits, workshops, and social events. Now our forum member vehicles will join forces with the likes of all types of cutting edge, experimental, and interactive technology. Come for the weekend and check out this fun-filled and informative event.</p>
-	</div>
-	
+  <div class="finalSchedule">
+  
+    <header class="car">AFKFest 2011 Car Computer Festival & Speaker Series</header>
+    <p>Mp3Car is hosting another one-of-a-kind show September 24, in Baltimore, Maryland. Come join computer hackers, car enthusiasts, techies, and audiophiles in a day of informative talks, car computer install presentations, socializing and innovating. In the morning, enjoy a free interactive speaker series on various topics on mobile computing.</p>
+    <p>This year's AFKFest will be at Betascape 2011, an event made to showcase innovative technology through a series of exhibits, workshops, and social events. Now our forum member vehicles will join forces with the likes of all types of cutting edge, experimental, and interactive technology. Come for the weekend and check out this fun-filled and informative event.</p>
+  </div>
+  
   <h2 class="saturday_pm">Saturday Night</h2>
   <div class="saturday_pm">
     <header><h3><a href="/blockparty.html">Station North Block Party</a></h3></header>

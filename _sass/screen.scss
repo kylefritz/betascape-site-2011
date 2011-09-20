@@ -478,7 +478,8 @@ section{
       td.odd {
         background: none repeat scroll 0 0 #E5ECF9;
       }
-    }
+  }
+  .interactive{padding-left:6*$gutter_width;}
   header{margin:20px 0 10px 0;}
   header.Theatre{background:$beta_red;}
   header.Node{background:$beta_blue;}
@@ -486,6 +487,7 @@ section{
   header.Conversations{background:$beta_orange;}
   header.Haus{background:$beta_orange;}
   header.lounge{background:$beta_blue;}
+  header.car{background:$beta_drkgreen;}
     ul{
     list-style: none;
     padding: 0;
