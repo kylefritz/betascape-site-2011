@@ -9,9 +9,7 @@ $(function(){
   betascape.getPresenters(function(presenters){
       byPresentType=_.groupBy(presenters,function(presentor){return presentor.lectureType;});
       
-      delete byPresentType["CreateCamp Facilitator"];
       var workshops = byPresentType["Workshops"];
-      
       var splitWorkshops=_.groupBy(workshops,function(p){return parseInt(p.trackNumber[0]);});
       
       byPresentType["Workshops @ Baltimore Node"]=splitWorkshops[1];
@@ -23,6 +21,12 @@ $(function(){
       var html=listTmpl({byPresentType : byPresentType});
       
       $('.finalSchedule').append(html);
+      
+      var listTmplate=_.template($('#ccf').html());
+      var htmlCCF=listTmplate({byPresentType : byPresentType});
+      
+      $('.ccf').append(htmlCCF);
+      
       $('table.events .more').hide();
       $('table.events .exhibit-title').click(function(evt){
         var found = $(this).parent().find('.more').slideToggle();
@@ -35,40 +39,42 @@ $(function(){
 <script type="template" id="final-schedule-template">
 
   <% for(var presentType in byPresentType){ %>
-   <% if(presentType != "Interactive Lounge") { %>
-   <% var people=byPresentType[presentType]; %>
-   <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
-
-    <header class="<%=presentType %>"><%= presentType %></header>
-    <table class="events striped">
-      <tr>
-        <th width="4%">Starts</th>
-        <th width="4%" >Ends</th>
-        <th width="46%" class="lectures">
-          <%= presentType %>
-        </th>
-        <th>Hosted By</th>
-      </tr>
-      <% _.each(people, function(person) { %>
-          <tr>
-            <td width="4%" ><%= person.startTime %></td>
-            <td width="4%" ><%= person.endTime %></td>
-            <td width="46%" class="lectures">
-              <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
-              <div class="more">
-                <%=person.atBetascape %>
-              </div>
-            </td>
-            <td>
-              <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
-              <% if(person.twitter){ %>
-                    <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
-              <% } %>
-            </td>
-        </tr>
-      <% }); %>
-
-    </table>
+   <% if(!(presentType == "Interactive Lounge")) { %>
+   <% if(!(presentType == "CreateCamp Facilitator")) { %>
+	   <% var people=byPresentType[presentType]; %>
+	   <% people.sort(function(a,b) { return parseFloat(a.trackNumber) - parseFloat(b.trackNumber) } ); %>
+	
+	    <header class="<%= presentType %>"><%= presentType %></header>
+	    <table class="events striped">
+	      <tr>
+	        <th width="4%">Starts</th>
+	        <th width="4%" >Ends</th>
+	        <th width="46%" class="lectures">
+	          <%= presentType %>
+	        </th>
+	        <th>Hosted By</th>
+	      </tr>
+	      <% _.each(people, function(person) { %>
+	          <tr>
+	            <td width="4%" ><%= person.startTime %></td>
+	            <td width="4%" ><%= person.endTime %></td>
+	            <td width="46%" class="lectures">
+	              <a class="exhibit-title" href="schedule2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>"><%= person.exhibitTitle %></a><br />
+	              <div class="more">
+	                <%=person.atBetascape %>
+	              </div>
+	            </td>
+	            <td>
+	              <span><a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a></span>
+	              <% if(person.twitter){ %>
+	                    <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+	              <% } %>
+	            </td>
+	        </tr>
+	      <% }); %>
+	
+	    </table>
+    <% } %>
     <% } %>
   <% } %> 
   
@@ -95,6 +101,27 @@ $(function(){
      </ul>
    </div>
 </script>
+
+<script type="template" id="ccf">
+  <div class="createcamp">
+	<header class="lounge">Create Camp Facilitators</header>
+	<% var people=byPresentType["CreateCamp Facilitator"]; %>
+     <ul class="interactive-schedule">
+     <% _.each(people, function(person) { %>
+          <li class='exhibit'>
+            <p class="presenter">
+              <a href='presenters2011.html#<%= person.name.replace('.', '').split(' ').join('').toLowerCase() %>'><%= person.name %></a>
+              <% if(person.twitter){ %>
+                <a target="_blank" class="twitter" href='http://twitter.com/<%= person.twitter %>'><%= person.twitter %></a>
+              <% } %>
+            </p>
+            <p class='description'><%= person.atBetascape %></p>
+          </li>
+     <% }); %>
+     </ul>
+   </div>   
+</script>
+
 <section class="exhibits2011">
 
   <header><h1>Betascape 2011 Schedule</h1></header>
@@ -111,7 +138,13 @@ $(function(){
 
   <h2 class="saturday_am">Saturday 9AM - 5PM: Lectures, Workshops &amp; Conversations</h2>
 	<div class="finalSchedule"></div>
-
+	
+	<div class="finalSchedule">
+  	  <header class="lounge">AFKFest 2011 Car Computer Festival & Speaker Series</header>
+		<p>Mp3Car is hosting another one-of-a-kind show September 24, in Baltimore, Maryland. Come join computer hackers, car enthusiasts, techies, and audiophiles in a day of informative talks, car computer install presentations, socializing and innovating. In the morning, enjoy a free interactive speaker series on various topics on mobile computing.</p>
+		<p>This year's AFKFest will be at Betascape 2011, an event made to showcase innovative technology through a series of exhibits, workshops, and social events. Now our forum member vehicles will join forces with the likes of all types of cutting edge, experimental, and interactive technology. Come for the weekend and check out this fun-filled and informative event.</p>
+	</div>
+	
   <h2 class="saturday_pm">Saturday Night</h2>
   <div class="saturday_pm">
     <header><h3><a href="/blockparty.html">Station North Block Party</a></h3></header>
@@ -128,5 +161,6 @@ $(function(){
   <h2 class="sunday">Sunday 9AM - 5PM: CreateCamp</h2>
   <div class="sunday">
     <p>Betascape attendees will be given space and in some cases resources, to come together to work on mini projects where they can explore new ideas and concepts that emerge from the series of Betascape events. Some CreateCamp projects will be preplanned and many will be the spontaneous result of inspiration and new ideas. From 4-5PM, CreateCamp Projects will be presented, and awards will be given for the most novel and innovative projects. Note: We will be making a list of facilitators public shortly and we encourage you to reach out to them if you want to collaborate with them on a project</p> 
+    <div class="ccf"></div>
   </div>
 </section>
