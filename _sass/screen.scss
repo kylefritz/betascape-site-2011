@@ -191,6 +191,12 @@ section.site-links{
       margin-bottom:$gutter_width*8;
       h1{display:none; /*use image instead of text*/}
     }
+    .social{
+        float: right;
+        .fb-like.fb_edge_widget_with_comment.fb_iframe_widget{
+          top:-4px;
+        }
+    }
     .view-source{
         float: right;
         background:transparentize(black,.6);
