@@ -459,7 +459,33 @@ section{
   }
 
 }
+.presenters2011{
+  header.presentType{
+    margin:20px 0 10px 0;
+    background:$beta_green;
+    padding: 10px 15px 8px;
+    font-size: 120%;
+    color: white;
+    font-weight: bold;
 
+  }
+  header.Workshops{background:$beta_blue;}
+  header.InteractiveLounge{background:$beta_red;}
+  header.Lectures{background:$beta_drkgreen;}
+  header.Conversations{background:$beta_orange;}
+     ul{
+    list-style: none;
+    padding: 0;
+      li {
+        ul{
+          li{
+            margin-left: 40px;
+          }
+        }
+      }
+    }
+
+}
 .finalSchedule, .createcamp {
   margin-top:2*$gutter_width;
   margin-bottom:4*$gutter_width;
@@ -486,14 +512,11 @@ section{
       }
   }
   .interactive{padding-left:6*$gutter_width;}
-  header{margin:20px 0 10px 0;}
-  header.Theatre{background:$beta_red;}
-  header.Node{background:$beta_blue;}
+  header{margin:20px 0 10px 0;background:$beta_green;}
   header.Lectures{background:$beta_drkgreen;}
+  header.Workshops{background:$beta_blue;}
+  header.InteractiveLounge{background:$beta_red;}
   header.Conversations{background:$beta_orange;}
-  header.Haus{background:$beta_orange;}
-  header.lounge{background:$beta_blue;}
-  header.car{background:$beta_drkgreen;}
     ul{
     list-style: none;
     padding: 0;
@@ -502,6 +525,6 @@ section{
       margin-left: 40px;
       @include column(23,true);
       }
-  	}
+    }
 }
 
