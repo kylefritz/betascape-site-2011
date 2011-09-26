@@ -251,6 +251,27 @@ section{
       }
     }
   }
+  section.contact{
+    background:transparentize($beta_orange,.2);
+	margin-left: 100px;
+	margin-bottom: 60px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	@include prepend(2);
+	@include column(12);
+    @include append(2);
+	@include single-box-shadow();
+	p{
+	  font-size:160%;
+	}
+    a{
+      @include link-colors(black,black);
+      @include single-text-shadow;
+      text-decoration:underline;
+	  font-weight:bold;
+    }
+  }
+  
   section.description{
     background:transparentize($beta_blue,.2);
     color:white;
