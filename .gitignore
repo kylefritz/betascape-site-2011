@@ -2,3 +2,6 @@
 .sass-cache
 _site
 stylesheets
+
+#don't accidently check in s3 credentials
+_jekyll_s3.yml
